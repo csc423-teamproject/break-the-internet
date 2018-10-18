@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/*
 Route::get('/customer', function () {
     return view('pages/customer');
 });
+*/
+
+Route::get("customer", "addCustomerController@index");
+Route::post("store", "addCustomerController@store");
