@@ -20,8 +20,6 @@ Route::get('/customer', function () {
     return view('pages/customer');
 });
 */
-Route::get('/vendor', function () {
-    return view('pages/vendor');
-});
+
 Route::get("customer", "addCustomerController@index");
 Route::post("store", "addCustomerController@store");
