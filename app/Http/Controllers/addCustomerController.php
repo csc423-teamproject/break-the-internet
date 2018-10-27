@@ -54,7 +54,7 @@ class addCustomerController extends Controller
         $customer->Status = 'Active';
         $customer->save();
 
-        return redirect('page/customer')->with('success', 'Customer Added');
+        return redirect('customer')->with('success', 'Customer Added');
 
     }
 
