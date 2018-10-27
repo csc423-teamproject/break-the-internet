@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Request;
-
-use App\Http\Requests;
-
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use DB;
 use App\Customer;
 
 class addCustomerController extends Controller
@@ -28,7 +27,7 @@ class addCustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages/customer');
     }
 
     /**
@@ -39,8 +38,24 @@ class addCustomerController extends Controller
      */
     public function store(Request $request)
     {
-        addCustomerModel::create(Request::all());
-        return 'store';
+        /*$this->validate($request, [
+            'CustomerName' => 'required',
+            'Email' => 'required'
+        ]);
+        */
+        $customer = new Customer;
+        $customer->CustomerName = $request->input('CustomerName');
+        $customer->CustomerAddress = $request->input('CustomerAddress');
+        $customer->City = $request->input('City');
+        $customer->StateCode = $request->input('StateCode');
+        $customer->ZIP = $request->input('ZIP');
+        $customer->Phone = $request->input('Phone');
+        $customer->Email = $request->input('Email');
+        $customer->Status = 'Active';
+        $customer->save();
+
+        return redirect('page/customer')->with('success', 'Customer Added');
+
     }
 
     /**

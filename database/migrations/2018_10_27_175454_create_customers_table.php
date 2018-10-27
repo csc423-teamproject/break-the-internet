@@ -20,7 +20,7 @@ class CreateCustomersTable extends Migration
             $table->string('City');
             $table->string('StateCode');
             $table->integer('ZIP');
-            $table->integer('Phone');
+            $table->bigInteger('Phone');
             $table->string('Email');
             $table->string('Status');
         });

@@ -21,5 +21,4 @@ Route::get('/customer', function () {
 });
 */
 
-Route::get("customer", "addCustomerController@index");
-Route::post("store", "addCustomerController@store");
+Route::resource("customer", "addCustomerController");
