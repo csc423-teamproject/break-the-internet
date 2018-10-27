@@ -1,7 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Add Customer</h1>
+    <h1>Add/Modify/Delete Customer</h1>
+    @if(count($customerData) > 1)
+        @foreach($customerData as $customerData)
+            <div>
+                <p>{{$customerData}}</p>
+            </div>
+        @endforeach
+        @else
+            <p>No customers found</p>
+        @endif
+        <hr />
     <form action="store" method="post">
         <label for="">Name</label>
         <input type="text" name="CustomerName" value="">

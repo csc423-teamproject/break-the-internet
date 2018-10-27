@@ -6,7 +6,7 @@ use Request;
 
 use App\Http\Requests;
 
-use App\addCustomerModel;
+use App\Customer;
 
 class addCustomerController extends Controller
 {
@@ -17,7 +17,8 @@ class addCustomerController extends Controller
      */
     public function index()
     {
-        return view('pages/customer');
+        $customerData = Customer::all();
+        return view('pages/customer')->with('customerData', $customerData);
     }
 
     /**
