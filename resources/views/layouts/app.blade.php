@@ -28,7 +28,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="{{ url('retailstores') }}">
                                 <span class="glyphicon glyphicon-credit-card"></span>
                                 Store Locations
                                 </a>
