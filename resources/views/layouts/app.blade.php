@@ -6,6 +6,43 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <title>@yield('title')</title>
+        <style>
+            * {
+              box-sizing: border-box;
+            }
+            
+            #searchInput {
+              background-image: url('/css/searchicon.png');
+              background-position: 10px 12px;
+              background-repeat: no-repeat;
+              width: 100%;
+              font-size: 16px;
+              padding: 12px 20px 12px 40px;
+              border: 1px solid #ddd;
+              margin-bottom: 12px;
+            }
+            
+            #searchUL {
+              list-style-type: none;
+              padding: 0;
+              margin: 0;
+            }
+            
+            #searchUL li a {
+              border: 1px solid #ddd;
+              margin-top: -1px; /* Prevent double borders */
+              background-color: #f6f6f6;
+              padding: 12px;
+              text-decoration: none;
+              font-size: 18px;
+              color: black;
+              display: block
+            }
+            
+            #searchUL li a:hover:not(.header) {
+              background-color: #eee;
+            }
+            </style>
     </head>
     <body>
         <nav class="container-fluid">
@@ -62,6 +99,22 @@
         </div>
 
 
-
+        <script>
+            function searchFunction() {
+                var input, filter, ul, li, a, i;
+                input = document.getElementById("searchInput");
+                filter = input.value.toUpperCase();
+                ul = document.getElementById("searchUL");
+                li = ul.getElementsByTagName("li");
+                for (i = 0; i < li.length; i++) {
+                    a = li[i].getElementsByTagName("a")[0];
+                    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        li[i].style.display = "";
+                    } else {
+                        li[i].style.display = "none";
+                    }
+                }
+            }
+            </script>
     </body>
 </html>

@@ -5,13 +5,14 @@
 @section('content')
     <h1>Add/Modify/Delete Customer</h1>
     @if(count($customerData) > 1)
+    <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search for customers..">
+    <ul id="searchUL">
         @foreach($customerData as $customerData)
             @if($customerData->Status == 'Active')
-            <div>
-                <p><a href="./customer/{{$customerData->CustomerId}}/edit">{{$customerData->CustomerName}}</a></p>
-            </div>
+                <li><a href="./customer/{{$customerData->CustomerId}}/edit">{{$customerData->CustomerName}}</li></p>
             @endif
         @endforeach
+        </ul>
         @else
             <p>No customers found</p>
         @endif
