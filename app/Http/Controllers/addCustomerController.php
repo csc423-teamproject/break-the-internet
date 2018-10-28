@@ -91,7 +91,18 @@ class addCustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $customer = Customer::find($id);
+        $customer->CustomerName = $request->input('CustomerName');
+        $customer->CustomerAddress = $request->input('CustomerAddress');
+        $customer->City = $request->input('City');
+        $customer->StateCode = $request->input('StateCode');
+        $customer->ZIP = $request->input('ZIP');
+        $customer->Phone = $request->input('Phone');
+        $customer->Email = $request->input('Email');
+        $customer->Status = 'Active';
+        $customer->save();
+
+        return redirect('customer')->with('success', 'Customer Updated');
     }
 
     /**
