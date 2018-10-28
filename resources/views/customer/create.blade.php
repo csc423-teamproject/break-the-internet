@@ -3,7 +3,7 @@
 @section('title', 'Customer Maintenance')
 
 @section('content')
-    <h1>Add/Modify/Delete Customer</h1>
+    <h1>Add Customer</h1>
     {!! Form::open(['action' => 'addCustomerController@store', 'method' => 'POST']) !!}
             <div class="form-group">
                 {{Form::label('CustomerName', 'Name')}}
