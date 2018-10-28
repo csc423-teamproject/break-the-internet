@@ -17,18 +17,12 @@
         </nav>
 
         <div class="container-fluid">
-            <div class="row">  <!--  -->
-                <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="row">
+                <nav class="col-md-2 d-md-block bg-light sidebar">
                     <div class="sidebar-sticky" style="height:100%;">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active" href="{{ url('/') }}">
-                                <span class="glyphicon glyphicon-home"></span>
-                                Main
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link dropdown-toggle" href="#" id="sidebarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="glyphicon glyphicon-user"></span>
                                 Customers
                                 </a>
@@ -43,6 +37,12 @@
                                 <a class="nav-link" href="#">
                                 <span class="glyphicon glyphicon-tags"></span>
                                 Inventory
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="{{ url('/') }}">
+                                <span class="glyphicon glyphicon-home"></span>
+                                Exit
                                 </a>
                             </li>
                         </ul>
