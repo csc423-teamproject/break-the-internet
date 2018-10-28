@@ -17,7 +17,7 @@ class addCustomerController extends Controller
     public function index()
     {
         $customerData = Customer::all();
-        return view('pages/customer')->with('customerData', $customerData);
+        return view('customer.index')->with('customerData', $customerData);
     }
 
     /**
@@ -27,7 +27,7 @@ class addCustomerController extends Controller
      */
     public function create()
     {
-        return view('pages/customer');
+        return view('customer.create');
     }
 
     /**
@@ -66,7 +66,8 @@ class addCustomerController extends Controller
      */
     public function show($id)
     {
-        //
+        $customerData = Customer::find($id);
+        return view('customer.show')->with('customerData', $customerData);
     }
 
     /**
@@ -77,7 +78,8 @@ class addCustomerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $customerData = Customer::find($id);
+        return view('customer.edit')->with('customerData', $customerData);
     }
 
     /**
