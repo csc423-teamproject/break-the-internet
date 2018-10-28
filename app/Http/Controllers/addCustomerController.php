@@ -112,6 +112,10 @@ class addCustomerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $customer = Customer::find($id);
+        $customer->Status = 'Inactive';
+        $customer->save();
+
+        return redirect('customer')->with('success', 'Customer Removed');
     }
 }
