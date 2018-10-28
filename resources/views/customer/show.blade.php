@@ -9,5 +9,5 @@
         {{Form::submit('Yes', ['class' => 'btn btn'])}}
     {!!Form::close() !!}
     <hr />
-    <p><a href="./../customer/">Back to customer screen</a></p>
+    <p><a href="../../customer/">Back to customer screen</a></p>
 @endsection
