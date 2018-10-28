@@ -16,8 +16,8 @@ Route::get('/', function () {
 });
 
 /* Added to enable testing of sidebar */
-Route::get('/vendor', function () {
-    return view('pages/vendor');
+Route::get('/landing', function () {
+    return view('pages/landing');
 });
 
 /*

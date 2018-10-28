@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Customer Maintenance')
+@section('title', 'Manager Portal')
 
 @section('content')
     <h1>Nanno's Foods - Manager Portal</h1>

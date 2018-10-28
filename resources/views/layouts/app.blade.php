@@ -22,21 +22,27 @@
                     <div class="sidebar-sticky" style="height:100%;">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link dropdown-toggle" href="#" id="sidebarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="{{ url('customer') }}">
                                 <span class="glyphicon glyphicon-user"></span>
                                 Customers
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
-                                <span class="glyphicon glyphicon-shopping-cart"></span>
-                                Vendors
+                                <span class="glyphicon glyphicon-credit-card"></span>
+                                Store Locations
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
                                 <span class="glyphicon glyphicon-tags"></span>
                                 Inventory
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                                Vendors
                                 </a>
                             </li>
                             <li class="nav-item">
