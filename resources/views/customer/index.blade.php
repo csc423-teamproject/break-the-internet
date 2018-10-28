@@ -9,7 +9,7 @@
     <ul id="searchUL">
         @foreach($customerData as $customerData)
             @if($customerData->Status == 'Active')
-                <li><a href="./customer/{{$customerData->CustomerId}}/edit">{{$customerData->CustomerName}}</li></p>
+                <li><a href="./customer/{{$customerData->CustomerId}}/edit">{{$customerData->CustomerName}}</a></li>
             @endif
         @endforeach
         </ul>
