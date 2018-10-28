@@ -42,5 +42,5 @@
                     {{Form::text('Email', '')}}
             </div>
             {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
-    {!! From:: close() !!}
+    {!! Form:: close() !!}
 @endsection
