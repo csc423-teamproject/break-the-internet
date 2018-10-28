@@ -14,7 +14,7 @@
                     <a class="navbar-left"><img src="{{ asset('images/Nannos-alpha.png') }}" class=.img-responsive></a>
                 </div>
             </div>
-        </nav>  
+        </nav>
 
         <div class="container-fluid">
             <div class="row">  <!--  -->
@@ -55,7 +55,7 @@
             </div>
         </div>
 
-        
+
 
     </body>
 </html>

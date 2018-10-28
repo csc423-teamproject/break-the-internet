@@ -14,7 +14,9 @@ class RetailStoreController extends Controller
      */
     public function index()
     {
-        //
+        $stores = RetailStore::all()->where('ActiveStatus', '==', true);
+
+        return view('retailstores.index', compact('stores'));
     }
 
     /**
@@ -24,7 +26,7 @@ class RetailStoreController extends Controller
      */
     public function create()
     {
-        //
+        return view('retailstores.create');
     }
 
     /**
@@ -36,6 +38,22 @@ class RetailStoreController extends Controller
     public function store(Request $request)
     {
         //
+        $retailstore = new RetailStore();
+
+        $retailstore->StoreCode = request('StoreCode');
+        $retailstore->StoreName = request('StoreName');
+        $retailstore->Address = request('Address');
+        $retailstore->City = request('City');
+        $retailstore->State = request('State');
+        $retailstore->ZIP = request('ZIP');
+        $retailstore->Phone = request('Phone');
+        $retailstore->ManagerName = request('ManagerName');
+        $retailstore->ActiveStatus = true;
+
+        $retailstore->save();
+
+        return redirect('/retailstores');
+//        return request()->all();
     }
 
     /**
@@ -58,6 +76,7 @@ class RetailStoreController extends Controller
     public function edit(RetailStore $retailStore)
     {
         //
+        return view('retailstores.edit');
     }
 
     /**

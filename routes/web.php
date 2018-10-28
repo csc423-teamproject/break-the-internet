@@ -27,3 +27,5 @@ Route::get('/customer', function () {
 */
 
 Route::resource("customer", "addCustomerController");
+Route::resource('RetailStore', 'RetailStoreController');
+
