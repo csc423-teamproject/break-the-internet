@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Customer Maintenance')
+
 @section('content')
     <h1>Add/Modify/Delete Customer</h1>
     @if(count($customerData) > 1)
@@ -42,5 +44,5 @@
                     {{Form::text('Email', '')}}
             </div>
             {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
-    {!! From:: close() !!}
+    {!! Form:: close() !!}
 @endsection

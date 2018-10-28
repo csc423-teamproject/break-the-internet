@@ -56,6 +56,7 @@
 
         <div class="container"><center>
             <!--These buttons can be linked to the routes for Manager and Vendor Views-->
+            <p><a href="{{ url('customer') }}" type="button" class="btn-lg" role="button">Mangler</a></p>
             <p><button type="button" class="btn-lg">Manager</button></p>
             <p><button type="button" class="btn-lg">Vendor</button></p>      
         </center>
