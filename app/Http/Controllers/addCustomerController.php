@@ -99,7 +99,6 @@ class addCustomerController extends Controller
         $customer->ZIP = $request->input('ZIP');
         $customer->Phone = $request->input('Phone');
         $customer->Email = $request->input('Email');
-        $customer->Status = 'Active';
         $customer->save();
 
         return redirect('customer')->with('success', 'Customer Updated');

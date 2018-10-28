@@ -3,8 +3,8 @@
 @section('title', 'Customer Maintenance')
 
 @section('content')
-    <h1>Add Customer</h1>
-    {!! Form::open(['action' => ['addCustomerController@update', $customerData->CustomerId], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+    <h1>Edit Customer</h1>
+    {!! Form::open(['action' => ['addCustomerController@update', $customerData->CustomerId], 'method' => 'POST']) !!}
             <div class="form-group">
                 {{Form::label('CustomerName', 'Name')}}
                 {{Form::text('CustomerName', $customerData->CustomerName, ['class' => 'form-control', 'placeholder' => 'CustomerName'])}}
@@ -33,6 +33,7 @@
                     {{Form::label('Email', 'Email')}}
                     {{Form::text('Email', $customerData->Email, ['class' => 'form-control', 'placeholder' => 'Email'])}}
             </div>
+            {{Form::hidden('_method', 'PUT')}}
             {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
     {!! Form:: close() !!}
 @endsection
