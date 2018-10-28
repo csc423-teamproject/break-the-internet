@@ -4,7 +4,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <script type="text/javascript">
+            function goesNowhere(){
+                alert("We haven't built the Vendor pages yet. Nothing to see here.");
+            }
+        </script>
         <title>Nanno's Foods - Welcome!</title>
 
         <!-- Fonts -->
@@ -56,9 +60,8 @@
 
         <div class="container"><center>
             <!--These buttons can be linked to the routes for Manager and Vendor Views-->
-            <p><a href="{{ url('customer') }}" type="button" class="btn-lg" role="button">Mangler</a></p>
-            <p><button type="button" class="btn-lg">Manager</button></p>
-            <p><button type="button" class="btn-lg">Vendor</button></p>      
+            <p><a href="{{ url('customer') }}" type="button" class="btn-lg" role="button">Manager</a></p>
+            <p><a type="button" class="btn-lg" role="button" onclick="goesNowhere()">Vendor</a></p> 
         </center>
         </div>
     </body>
