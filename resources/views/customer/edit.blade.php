@@ -3,7 +3,7 @@
 @section('title', 'Customer Maintenance')
 
 @section('content')
-    <h1>Edit Customer</h1>
+    <h2>Edit Customer</h2>
     {!! Form::open(['action' => ['addCustomerController@update', $customerData->CustomerId], 'method' => 'POST']) !!}
             <div class="form-group">
                 {{Form::label('CustomerName', 'Name')}}
@@ -37,5 +37,5 @@
             {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
     {!! Form:: close() !!}
     <hr />
-    <p><a href="./../../customer/{{$customerData->CustomerId}}/" style="color:red">Delete this customer</a></p>
+    <p><a href="./../../customer/{{$customerData->CustomerId}}/" class="btn btn-md btn-danger" role="button">Delete this customer</a></p>
 @endsection

@@ -14,9 +14,9 @@
         <!-- Fonts -->
             <!--
             <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
             -->
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <!-- Styles -->
         <style>
            /* Any other style information we want goes here - JVH */
@@ -60,8 +60,8 @@
 
         <div class="container"><center>
             <!--These buttons can be linked to the routes for Manager and Vendor Views-->
-            <p><a href="{{ url('landing') }}" type="button" class="btn-lg" role="button">Manager</a></p>
-            <p><a type="button" class="btn-lg" role="button" onclick="goesNowhere()">Vendor</a></p> 
+            <p><a href="{{ url('landing') }}" class="btn btn-lg btn-primary" role="button">Manager</a></p>
+            <p><button class="btn btn-lg btn-primary" onclick="goesNowhere()">Vendor</button></p> 
         </center>
         </div>
     </body>

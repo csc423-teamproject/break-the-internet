@@ -59,7 +59,7 @@
                     <div class="sidebar-sticky" style="height:100%;">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link dropdown-toggle" href="{{ url('customer') }}">
+                                <a class="nav-link" href="{{ url('customer') }}">
                                 <span class="glyphicon glyphicon-user"></span>
                                 Customers
                                 </a>
