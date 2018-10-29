@@ -73,10 +73,15 @@ class RetailStoreController extends Controller
      * @param  \App\RetailStore  $retailStore
      * @return \Illuminate\Http\Response
      */
-    public function edit(RetailStore $retailStore)
+//    public function edit(RetailStore $retailStore)
+    public function edit($StoreId)
     {
         //
-        return view('retailstores.edit');
+        $retailstore = RetailStore::findOrFail($StoreId);
+//        return $retailstore;
+        return view('retailstores.edit', compact('retailstore'));
+
+        redirect('/retailstores');
     }
 
     /**
@@ -86,9 +91,11 @@ class RetailStoreController extends Controller
      * @param  \App\RetailStore  $retailStore
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RetailStore $retailStore)
+//    public function update(Request $request, RetailStore $retailStore)
+    public function update()
     {
         //
+        dd(request()->all());
     }
 
     /**
@@ -97,8 +104,11 @@ class RetailStoreController extends Controller
      * @param  \App\RetailStore  $retailStore
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RetailStore $retailStore)
+//    public function destroy(RetailStore $retailStore)
+    public function destroy($StoreId)
     {
         //
+        RetailStore::find($StoreId)->delete();
+        redirect('/retailstores');
     }
 }

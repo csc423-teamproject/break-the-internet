@@ -21,10 +21,10 @@ class CreateRetailStoresTable extends Migration
             $table->string('Address');
             $table->string('City');
             $table->string('State');
-            $table->unsignedInteger('ZIP');
+            $table->string('ZIP');
             $table->string('Phone');
             $table->string('ManagerName');
-            $table->boolean('ActiveStatus')->default(False);
+            $table->enum('ActiveStatus', ['Enabled', 'Disabled']);
             $table->timestamps();
         });
     }
