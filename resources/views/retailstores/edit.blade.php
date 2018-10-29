@@ -36,15 +36,17 @@
             {{--<input type="checkbox" class="form-check" name="ActiveStatus" value="ActiveStatus" >--}}
         {{--</div>--}}
         <div class="form-group">
-            <button type="submit" class="btn btn-primary">Update Store Location</button>
+            <button type="submit" class="btn btn-primary">Update Location</button>
 
         </div>
     </form>
-    <form method="post" action="/retailstores/{{ $retailstore->StoreId }}">
-        @method('DELETE')
-        @csrf
-        <div class="form-group">
-            <button type="submit" class="btn btn-danger">Delete Store Location</button>
-        </div>
-    </form>
+    <hr />
+    <p><a href="./../../retailstores/{{$retailstore->StoreId}}/" class="btn btn-md btn-danger" role="button">Delete this location</a></p>
+    {{--<form method="post" action="/retailstores/{{ $retailstore->StoreId }}">--}}
+        {{--@method('DELETE')--}}
+        {{--@csrf--}}
+        {{--<div class="form-group">--}}
+            {{--<button type="submit" class="btn btn-danger">Delete Store Location</button>--}}
+        {{--</div>--}}
+    {{--</form>--}}
 @endsection

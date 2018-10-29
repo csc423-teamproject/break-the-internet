@@ -65,8 +65,8 @@ class RetailStoreController extends Controller
 //    public function show(RetailStore $retailStore)
     public function show($id)
     {
-        $store = RetailStore::find($id);
-        return view('retailstores.show')->with('store', $store);
+        $retailstore = RetailStore::find($id);
+        return view('retailstores.show')->with('retailstore', $retailstore);
     }
 
     /**
@@ -83,7 +83,7 @@ class RetailStoreController extends Controller
 //        return $retailstore;
         return view('retailstores.edit', compact('retailstore'));
 
-        redirect('/retailstores');
+//        redirect('/retailstores');
     }
 
     /**
@@ -123,6 +123,6 @@ class RetailStoreController extends Controller
         $store->ActiveStatus = 'Disabled';
         $store->save();
 
-        redirect('/retailstores');
+        return redirect('retailstores')->with('success', 'Location Removed');
     }
 }
