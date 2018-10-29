@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use DB;
 use App\Customer;
 
-class customerController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -47,11 +47,11 @@ class customerController extends Controller
         $customer->CustomerName = $request->input('CustomerName');
         $customer->Address = $request->input('Address');
         $customer->City = $request->input('City');
-        $customer->StateCode = $request->input('StateCode');
+        $customer->State = $request->input('State');
         $customer->ZIP = $request->input('ZIP');
         $customer->Phone = $request->input('Phone');
         $customer->Email = $request->input('Email');
-        $customer->Status = 'Active';
+        $customer->ActiveStatus = 'Enabled';
         $customer->save();
 
         return redirect('customer')->with('success', 'Customer Added');
@@ -78,7 +78,7 @@ class customerController extends Controller
      */
     public function edit($id)
     {
-        $customerData = Customer::find($id);
+        $customerData = Customer::findOrFail($id);
         return view('customer.edit')->with('customerData', $customerData);
     }
 
@@ -95,7 +95,7 @@ class customerController extends Controller
         $customer->CustomerName = $request->input('CustomerName');
         $customer->Address = $request->input('Address');
         $customer->City = $request->input('City');
-        $customer->StateCode = $request->input('StateCode');
+        $customer->State = $request->input('State');
         $customer->ZIP = $request->input('ZIP');
         $customer->Phone = $request->input('Phone');
         $customer->Email = $request->input('Email');
@@ -113,7 +113,7 @@ class customerController extends Controller
     public function destroy($id)
     {
         $customer = Customer::find($id);
-        $customer->Status = 'Inactive';
+        $customer->ActiveStatus = 'Disabled';
         $customer->save();
 
         return redirect('customer')->with('success', 'Customer Removed');

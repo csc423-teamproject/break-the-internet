@@ -7,7 +7,7 @@ $factory->define(App\Customer::class, function (Faker $faker) {
         'CustomerName' => $faker->name,
         'Address' => $faker->streetAddress,
         'City' => $faker->city,
-        'State' => $faker->address,
+        'State' => 'NY',
         'ZIP' => $faker->postcode,
         'Phone' => $faker->phoneNumber,
         'Email' => $faker->email,

@@ -4,38 +4,40 @@
 
 @section('content')
     <h2>Edit Customer</h2>
-    {!! Form::open(['action' => ['customerController', $customerData->CustomerId], 'method' => 'POST']) !!}
+
+    <form method="post" action="/customer/{{ $customerData->CustomerId }}">
+        @method('PATCH')
+        @csrf
             <div class="form-group">
-                {{Form::label('CustomerName', 'Name')}}
-                {{Form::text('CustomerName', $customerData->CustomerName, ['class' => 'form-control', 'placeholder' => 'CustomerName'])}}
+                <input type="text" class="form-control" name="CustomerName" id="CustomerName" placeholder="Customer Name" value="{{ $customerData->CustomerName }}">
             </div>
             <div class="form-group">
-                    {{Form::label('Address', 'Address')}}
-                    {{Form::text('Address', $customerData->Address, ['class' => 'form-control', 'placeholder' => 'Address'])}}
+                <input type="text" class="form-control" name="Address" id="Address" placeholder="Address" value="{{ $customerData->Address }}">
+
             </div>
             <div class="form-group">
-                    {{Form::label('City', 'City')}}
-                    {{Form::text('City', $customerData->City, ['class' => 'form-control', 'placeholder' => 'City'])}}
+                <input type="text" class="form-control" name="City" id="City" placeholder="City" value="{{ $customerData->City }}">
+
             </div>
             <div class="form-group">
-                    {{Form::label('StateCode', 'State Code')}}
-                    {{Form::text('StateCode', $customerData->StateCode, ['class' => 'form-control', 'placeholder' => 'StateCode'])}}
+                <input type="text" class="form-control" name="State" id="State" placeholder="State" value="{{ $customerData->State }}">
+
             </div>
             <div class="form-group">
-                    {{Form::label('ZIP', 'ZIP')}}
-                    {{Form::text('ZIP', $customerData->ZIP, ['class' => 'form-control', 'placeholder' => 'ZIP'])}}
+                <input type="text" class="form-control" name="ZIP" id="ZIP" placeholder="ZIP" value="{{ $customerData->ZIP }}">
+
             </div>
             <div class="form-group">
-                    {{Form::label('Phone', 'Phone')}}
-                    {{Form::text('Phone', $customerData->Phone, ['class' => 'form-control', 'placeholder' => 'Phone'])}}
+                <input type="tel" class="form-control" name="Phone" id="Phone" placeholder="Phone" value="{{ $customerData->Phone }}">
+
             </div>
             <div class="form-group">
-                    {{Form::label('Email', 'Email')}}
-                    {{Form::text('Email', $customerData->Email, ['class' => 'form-control', 'placeholder' => 'Email'])}}
+                <input type="email" class="form-control" name="Email" id="Email" placeholder="E-Mail" value="{{ $customerData->Email }}">
+
             </div>
-            {{Form::hidden('_method', 'PUT')}}
-            {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
-    {!! Form:: close() !!}
+        <button type="submit" class="btn btn-primary">Modify Customer</button>
+
+    </form>
     <hr />
     <p><a href="./../../customer/{{$customerData->CustomerId}}/" class="btn btn-md btn-danger" role="button">Delete this customer</a></p>
 @endsection

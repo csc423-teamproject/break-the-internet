@@ -4,35 +4,31 @@
 
 @section('content')
     <h1>Add Customer</h1>
-    {!! Form::open(['action' => 'customerController', 'method' => 'POST']) !!}
+    <form action="/customer" method="post">
+        @csrf
             <div class="form-group">
-                {{Form::label('CustomerName', 'Name')}}
-                {{Form::text('CustomerName', '', ['class' => 'form-control', 'placeholder' => ''])}}
+                <input type="text" class="form-control" name="CustomerName" id="CustomerName" placeholder="Customer Name">
             </div>
             <div class="form-group">
-                    {{Form::label('Address', 'Address')}}
-                    {{Form::text('Address', '', ['class' => 'form-control', 'placeholder' => ''])}}
+                <input type="text" class="form-control" name="Address" id="Address" placeholder="Address">
             </div>
             <div class="form-group">
-                    {{Form::label('City', 'City')}}
-                    {{Form::text('City', '', ['class' => 'form-control', 'placeholder' => ''])}}
+                <input type="text" class="form-control" name="City" id="City" placeholder="City">
             </div>
             <div class="form-group">
-                    {{Form::label('StateCode', 'State Code')}}
-                    {{Form::text('StateCode', '', ['class' => 'form-control', 'placeholder' => ''])}}
+                <input type="text" class="form-control" name="State" id="State" placeholder="State">
+
             </div>
             <div class="form-group">
-                    {{Form::label('ZIP', 'ZIP')}}
-                    {{Form::text('ZIP', '', ['class' => 'form-control', 'placeholder' => ''])}}
+                <input type="text" class="form-control" name="ZIP" id="ZIP" placeholder="ZIP">
             </div>
             <div class="form-group">
-                    {{Form::label('Phone', 'Phone')}}
-                    {{Form::text('Phone', '', ['class' => 'form-control', 'placeholder' => ''])}}
+                <input type="tel" class="form-control" name="Phone" id="Phone" placeholder="Phone">
+
             </div>
             <div class="form-group">
-                    {{Form::label('Email', 'Email')}}
-                    {{Form::text('Email', '', ['class' => 'form-control', 'placeholder' => ''])}}
+                <input type="email" class="form-control" name="Email" id="Email" placeholder="E-Mail">
             </div>
-            {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
-    {!! Form:: close() !!}
+        <button type="submit" class="btn btn-primary">Add Customer</button>
+    </form>
 @endsection
