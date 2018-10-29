@@ -13,7 +13,7 @@
             }
             
             #searchInput {
-              background-image: url('/css/searchicon.png');
+              /*background-image: url('/css/searchicon.png');*/
               background-position: 10px 12px;
               background-repeat: no-repeat;
               width: 100%;
