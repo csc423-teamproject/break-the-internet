@@ -3,7 +3,7 @@
 @section('title', 'Customer Maintenance')
 
 @section('content')
-    <h1>Are you sure you want to delete this customer?</h1>
+    <h2>Are you sure you want to delete this customer?</h2>
     {!!Form::open(['action' => ['addCustomerController@destroy', $customerData->CustomerId], 'method' => 'POST'])!!}
         {{Form::hidden('_method', 'DELETE')}}
         {{Form::submit('Yes', ['class' => 'btn btn'])}}
