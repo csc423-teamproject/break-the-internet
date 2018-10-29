@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Add Store Location')
+
 @section('content')
     <h1>Add a new Retail Location</h1>
 

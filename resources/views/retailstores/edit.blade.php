@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Modify Store Location')
+
 @section('content')
     <h1>Edit a Retail Location</h1>
 
