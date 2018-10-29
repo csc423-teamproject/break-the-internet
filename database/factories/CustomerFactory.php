@@ -2,19 +2,15 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\RetailStore::class, function (Faker $faker) {
+$factory->define(App\Customer::class, function (Faker $faker) {
     return [
-        'StoreCode' => $faker->unique()->buildingNumber,
-        'StoreName' => $faker->colorName,
+        'CustomerName' => $faker->name,
         'Address' => $faker->streetAddress,
         'City' => $faker->city,
-        'State' => 'NY',
+        'State' => $faker->address,
         'ZIP' => $faker->postcode,
         'Phone' => $faker->phoneNumber,
-        'ManagerName' => $faker->name,
+        'Email' => $faker->email,
         'ActiveStatus' => 'Enabled',
-
-
-        //
     ];
 });
