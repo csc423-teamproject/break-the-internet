@@ -4,14 +4,14 @@
 
 @section('content')
     <h1>Add Customer</h1>
-    {!! Form::open(['action' => 'addCustomerController@store', 'method' => 'POST']) !!}
+    {!! Form::open(['action' => 'customerController', 'method' => 'POST']) !!}
             <div class="form-group">
                 {{Form::label('CustomerName', 'Name')}}
                 {{Form::text('CustomerName', '', ['class' => 'form-control', 'placeholder' => ''])}}
             </div>
             <div class="form-group">
-                    {{Form::label('CustomerAddress', 'Address')}}
-                    {{Form::text('CustomerAddress', '', ['class' => 'form-control', 'placeholder' => ''])}}
+                    {{Form::label('Address', 'Address')}}
+                    {{Form::text('Address', '', ['class' => 'form-control', 'placeholder' => ''])}}
             </div>
             <div class="form-group">
                     {{Form::label('City', 'City')}}

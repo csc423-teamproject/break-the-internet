@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use DB;
 use App\Customer;
 
-class addCustomerController extends Controller
+class customerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -45,7 +45,7 @@ class addCustomerController extends Controller
         */
         $customer = new Customer;
         $customer->CustomerName = $request->input('CustomerName');
-        $customer->CustomerAddress = $request->input('CustomerAddress');
+        $customer->Address = $request->input('Address');
         $customer->City = $request->input('City');
         $customer->StateCode = $request->input('StateCode');
         $customer->ZIP = $request->input('ZIP');
@@ -93,7 +93,7 @@ class addCustomerController extends Controller
     {
         $customer = Customer::find($id);
         $customer->CustomerName = $request->input('CustomerName');
-        $customer->CustomerAddress = $request->input('CustomerAddress');
+        $customer->Address = $request->input('Address');
         $customer->City = $request->input('City');
         $customer->StateCode = $request->input('StateCode');
         $customer->ZIP = $request->input('ZIP');
