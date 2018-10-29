@@ -11,7 +11,7 @@
             <ul id="searchUL">
                 @foreach($stores as $store)
                     @if($store->ActiveStatus == 'Enabled')
-                        <li><a href="./customer/{{$store->StoreId}}/edit">{{$store->StoreName}} {{$store->StoreCode}}</a></li>
+                        <li><a href="./retailstores/{{$store->StoreId}}/edit">{{$store->StoreName}} {{$store->StoreCode}}</a></li>
                     @endif
                 @endforeach
             </ul>

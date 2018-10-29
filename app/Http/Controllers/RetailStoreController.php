@@ -62,9 +62,11 @@ class RetailStoreController extends Controller
      * @param  \App\RetailStore  $retailStore
      * @return \Illuminate\Http\Response
      */
-    public function show(RetailStore $retailStore)
+//    public function show(RetailStore $retailStore)
+    public function show($id)
     {
-        //
+        $store = RetailStore::find($id);
+        return view('retailstores.show')->with('store', $store);
     }
 
     /**
@@ -92,13 +94,22 @@ class RetailStoreController extends Controller
      * @return \Illuminate\Http\Response
      */
 //    public function update(Request $request, RetailStore $retailStore)
-    public function update()
+    public function update(Request $request, $id)
     {
-        //
-        dd(request()->all());
-    }
+        $retailstore = RetailStore::find($id);
+        $retailstore->StoreCode = request('StoreCode');
+        $retailstore->StoreName = request('StoreName');
+        $retailstore->Address = request('Address');
+        $retailstore->City = request('City');
+        $retailstore->State = request('State');
+        $retailstore->ZIP = request('ZIP');
+        $retailstore->Phone = request('Phone');
+        $retailstore->ManagerName = request('ManagerName');
+        $retailstore->save();
 
-    /**
+        return redirect('retailstores')->with('success', 'Store Updated');
+    }
+        /**
      * Remove the specified resource from storage.
      *
      * @param  \App\RetailStore  $retailStore
@@ -108,7 +119,10 @@ class RetailStoreController extends Controller
     public function destroy($StoreId)
     {
         //
-        RetailStore::find($StoreId)->delete();
+        $store = RetailStore::find($StoreId);
+        $store->ActiveStatus = 'Disabled';
+        $store->save();
+
         redirect('/retailstores');
     }
 }

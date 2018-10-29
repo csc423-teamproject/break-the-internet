@@ -3,11 +3,13 @@
 @section('title', 'Show Retail Store')
 
 @section('content')
-    {{--<h1>Are you sure you want to delete this store?</h1>--}}
-    {{--{!!Form::open(['action' => ['CustomerController', $customerData->CustomerId], 'method' => 'POST'])!!}--}}
-        {{--{{Form::hidden('_method', 'DELETE')}}--}}
-        {{--{{Form::submit('Yes', ['class' => 'btn btn'])}}--}}
-    {{--{!!Form::close() !!}--}}
-    <hr />
-    <p><a href="../../retailstores/">Back to store screen</a></p>
+    <h1>Are you sure you want to delete this location?</h1>
+    <div class="form-inline">
+        <form method='POST' action="/customer/{{ $retailstore->StoreId }}">
+            @method('DELETE')
+            @csrf
+            <button type="submit" class="btn btn-danger">Yes</button>
+            <a href="/retailstores" class="btn btn-primary">No</a>
+        </form>
+    </div>
 @endsection

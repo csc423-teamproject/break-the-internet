@@ -3,7 +3,7 @@
 @section('title', 'Modify Store Location')
 
 @section('content')
-    <h1>Edit a Retail Location</h1>
+    <h1>Modify Location</h1>
 
     <form method="post" action="/retailstores/{{ $retailstore->StoreId }}">
         @method('PATCH')
@@ -32,9 +32,9 @@
         <div class="form-group">
             <input type="text" class="form-control" name="ManagerName" placeholder="Manager" value="{{ $retailstore->ManagerName }}">
         </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check" name="ActiveStatus" value="ActiveStatus" >
-        </div>
+        {{--<div class="form-check">--}}
+            {{--<input type="checkbox" class="form-check" name="ActiveStatus" value="ActiveStatus" >--}}
+        {{--</div>--}}
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Update Store Location</button>
 
