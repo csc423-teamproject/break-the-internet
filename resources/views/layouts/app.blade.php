@@ -78,7 +78,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="{{ url('vendor') }}">
                                 <span class="glyphicon glyphicon-shopping-cart"></span>
                                 Vendors
                                 </a>

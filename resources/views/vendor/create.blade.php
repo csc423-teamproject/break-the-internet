@@ -1,0 +1,40 @@
+@extends('layouts.app')
+
+@section('title', 'Vendor Maintenance')
+
+@section('content')
+    <h1>Add Vendor</h1>
+    <form action="/vendor" method="post">
+        @csrf
+            <div class="form-group">
+                <input type="text" class="form-control" name="VendorCode" id="VendorCode" placeholder="Vendor Code">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="VendorName" id="VendorName" placeholder="Vendor Name">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="Address" id="Address" placeholder="Address">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="City" id="City" placeholder="City">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="State" id="State" placeholder="State">
+
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="ZIP" id="ZIP" placeholder="ZIP">
+            </div>
+            <div class="form-group">
+                <input type="tel" class="form-control" name="Phone" id="Phone" placeholder="Phone">
+
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="ContactPersonName" id="ContactPersonName" placeholder="ContactPersonName">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="Password" id="Password" placeholder="Password">
+            </div>
+        <button type="submit" class="btn btn-primary">Add Vendor</button>
+    </form>
+@endsection
