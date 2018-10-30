@@ -38,7 +38,7 @@
             </div>
             <div class="form-group">
             <label>Contact Person</label>
-                <input type="text" class="form-control" name="ContactPersonName" id="ContactPersonName" placeholder="ContactPersonName">
+                <input type="text" class="form-control" name="ContactPersonName" id="ContactPersonName" placeholder="Contact Person">
             </div>
             <div class="form-group">
             <label>Password</label>
