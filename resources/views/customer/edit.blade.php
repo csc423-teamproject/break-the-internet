@@ -3,7 +3,7 @@
 @section('title', 'Customer Maintenance')
 
 @section('content')
-    <h2>Edit Customer</h2>
+    <h2>Modify Customer</h2>
 
     <form method="post" action="/customer/{{ $customerData->CustomerId }}">
         @method('PATCH')
