@@ -3,7 +3,7 @@
 @section('title', 'Vendor Maintenance')
 
 @section('content')
-    <h2>Add/Modify/Delete Vendor</h2>
+    <h2>Vendors</h2>
     <div class="col-md-6">
         @if(count($vendorData->where("ActiveStatus", 'Enabled')) >= 1)
             <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search for vendors...">
