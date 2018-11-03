@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
         <script type="text/javascript" src="{{ URL::asset('js/layout.js') }}"></script>
         <link rel="stylesheet" href="{{ URL::asset('css/layout.css') }}" />
         <meta charset="utf-8">

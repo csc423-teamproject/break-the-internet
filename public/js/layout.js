@@ -1,3 +1,4 @@
+//JS Functions
 function searchFunction() {
     var input, filter, ul, li, a, i;
     input = document.getElementById("searchInput");
@@ -13,3 +14,13 @@ function searchFunction() {
         }
     }
 }
+
+//------------------------------------------------------------------
+
+//JQuery
+
+// $(document).ready(function() {
+//     $('.form-select2).select2({
+//         placeholder: "Select an option"
+//     });
+// });
