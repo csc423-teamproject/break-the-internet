@@ -32,4 +32,4 @@ Route::resource('vendor', 'VendorController');
 Route::resource('item', 'InventoryItemController');
 Route::resource('division', 'DivisionController');
 Route::resource('category', 'CategoryController');
-
+Route::resource('order', 'OrderController');

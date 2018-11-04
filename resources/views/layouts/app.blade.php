@@ -52,6 +52,12 @@
                                 </a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ url('order') }}">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                                Orders
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link active" href="{{ url('/') }}">
                                 <span class="glyphicon glyphicon-home"></span>
                                 Exit
