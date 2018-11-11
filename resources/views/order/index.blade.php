@@ -10,7 +10,7 @@
             <ul id="searchUL">
                 @foreach($orderData as $orderData)
                     @if($orderData->Status == 'Pending')
-                        <li><a href="./order/{{$orderData->orderId}}/edit">{{$orderData->OrderId}}</a></li>
+                        <li><a href="./order/{{$orderData->OrderId}}">{{$orderData->OrderId}}</a></li>
                     @endif
                 @endforeach
             </ul>

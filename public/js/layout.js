@@ -19,8 +19,6 @@ function searchFunction() {
 
 //JQuery
 
-// $(document).ready(function() {
-//     $('.form-select2).select2({
-//         placeholder: "Select an option"
-//     });
-// });
+$(document).ready(function() {
+    $('.form-select2').select2();
+});
