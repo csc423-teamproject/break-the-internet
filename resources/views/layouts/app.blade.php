@@ -27,50 +27,38 @@
         <title>@yield('title')</title>
     </head>
     <body>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="{{ url('customer') }}">
+                <i class="material-icons">group</i>
+                Customers
+            </a>
+            <a href="{{ url('retailstores') }}">
+                <i class="material-icons">shopping_cart</i>
+                Store Locations
+            </a>
+            <a href="{{ url('item') }}">
+                <i class="material-icons">poll</i>
+                Inventory
+            </a>
+            <a href="{{ url('vendor') }}">
+                <i class="material-icons">perm_contact_calendar</i>
+                Vendors
+            </a>
+            <a href="{{ url('order') }}">
+                <i class="material-icons">shopping_cart</i>
+                Orders
+            </a>
+            <a class="nav-link active" href="{{ url('/') }}">
+                <i class="material-icons">subdirectory_arrow_left</i>
+                Exit
+            </a>
+        </div>
 
-    <!---
-        <nav class="container-fluid">
-            <div class="navbar navbar-default">
-                <div class="navbar-header">
-                    <a class="navbar-left"><img src="{{ asset('images/Nannos-alpha.png') }}" class=.img-responsive></a>
-                </div>
-            </div>
-        </nav>
-    -->
-
-                <div id="mySidenav" class="sidenav">
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <a href="{{ url('customer') }}">
-                        <i class="material-icons">group</i>
-                        Customers
-                    </a>
-                    <a  href="{{ url('retailstores') }}">
-                        <i class="material-icons">shopping_cart</i>
-                        Store Locations
-                    </a>
-                    <a href="{{ url('item') }}">
-                        <i class="material-icons">poll</i>
-                        Inventory
-                    </a>
-                    <a href="{{ url('vendor') }}">
-                        <i class="material-icons">perm_contact_calendar</i>
-                        Vendors
-                    </a>
-                    <a href="{{ url('order') }}">
-                        <i class="material-icons">shopping_cart</i>
-                        Orders
-                    </a>
-                    <a class="nav-link active" href="{{ url('/') }}">
-                        <i class="material-icons">subdirectory_arrow_left</i>
-                        Exit
-                    </a>
-                </div>
-
-                <div id="main">
-                    <img src="{{ asset('images/Nannos-alpha.png') }}" class=.img-responsive onclick="openNav()">
-                    @yield('content')
-                </div>
-            </div>
+        <div id="main">
+            <img src="{{ asset('images/Nannos-alpha.png') }}" class=.img-responsive 
+                onclick="openNav()" style="cursor:pointer">
+                @yield('content')
         </div>
     </body>
 </html>
