@@ -70,14 +70,19 @@ class OrderController extends Controller
     public function show($id)
     {
         $orderData = Order::find($id);
-        $orderDetailData = OrderDetail::all()
-                                ->where('OrderId', '=', $id);
+        //$orderDetailData = OrderDetail::all()
+        //                       ->where('OrderId', '=', $id);
         $vendor = Vendor::find($orderData->VendorId);
         $store = RetailStore::find($orderData->StoreId);
-        $items = InventoryItem::all();
+        //$items = InventoryItem::all();
+        $orderDetailData = DB::table('order_details')
+                    ->where('OrderId', '=', $id)
+                    ->join('inventory_items', 'order_details.ItemId', '=', 'inventory_items.ItemId')
+                    ->select('OrderDetailId', 'OrderId', 'QuantityOrdered','inventory_items.Description')
+                    ->get();
         return view('order.show')
         ->with('orderData', $orderData)
-                            ->with('items', $items)
+                            //->with('items', $items)
                             ->with('store', $store)
                             ->with('vendor', $vendor)
                             ->with('orderDetailData', $orderDetailData);

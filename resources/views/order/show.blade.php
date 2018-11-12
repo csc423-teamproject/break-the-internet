@@ -12,7 +12,7 @@
             <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search for items...">
             <ul id="searchUL">
                 @foreach($orderDetailData as $orderDetailData)
-                            <li><a href="">{{$orderDetailData->ItemId}}, {{$orderDetailData->QuantityOrdered}}</a></li>
+                            <li><a href="">{{$orderDetailData->Description}}, {{$orderDetailData->QuantityOrdered}}</a></li>
                 @endforeach
             </ul>
         <hr />
