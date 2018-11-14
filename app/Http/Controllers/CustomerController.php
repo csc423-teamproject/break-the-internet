@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use DB;
 use App\Customer;
+use App\Http\Requests\CustomerStoreRequest;
 
 class CustomerController extends Controller
 {
@@ -38,11 +39,9 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        /*$this->validate($request, [
-            'CustomerName' => 'required',
-            'Email' => 'required'
-        ]);
-        */
+       
+
+
         $customer = new Customer;
         $customer->CustomerName = $request->input('CustomerName');
         $customer->Address = $request->input('Address');
