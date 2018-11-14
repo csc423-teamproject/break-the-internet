@@ -33,3 +33,4 @@ Route::resource('item', 'InventoryItemController');
 Route::resource('division', 'DivisionController');
 Route::resource('category', 'CategoryController');
 Route::resource('order', 'OrderController');
+Route::resource('delivery', 'DeliveryController');
