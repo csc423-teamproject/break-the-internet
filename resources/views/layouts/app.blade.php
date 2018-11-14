@@ -3,10 +3,7 @@
     <head>
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <!--
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        -->
+
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
         
@@ -28,7 +25,7 @@
     </head>
     <body>
         <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">close</a>
             <a href="{{ url('customer') }}">
                 <i class="material-icons">group</i>
                 Customers
@@ -54,7 +51,6 @@
                 Exit
             </a>
         </div>
-
         <div id="main">
             <img src="{{ asset('images/Nannos-alpha.png') }}" class=.img-responsive 
                 onclick="openNav()" style="cursor:pointer">
