@@ -6,6 +6,7 @@
     <h1>Add Customer</h1>
     <form action="/customer" method="post">
         @csrf
+        <div class="card shadow-sm p-3 m-2"> <!-- Adjust this -->
             <div class="form-group">
                     <label>Customer Name</Label>
                 <input type="text" class="form-control" name="CustomerName" id="CustomerName" placeholder="Customer Name">
@@ -36,6 +37,8 @@
                     <label>E-mail</Label>
                 <input type="email" class="form-control" name="Email" id="Email" placeholder="E-Mail">
             </div>
+        </div>
         <button type="submit" class="btn btn-primary">Add Customer</button>
+        
     </form>
 @endsection

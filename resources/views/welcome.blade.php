@@ -23,7 +23,7 @@
                 class="close" title="Close Modal">&times;</span>
 
             <!-- Modal Content -->
-            <form class="modal-content animate" action="/landing">
+            <form class="modal-content animate" action="{{ url('landing') }}">
                 <div class="imgcontainer">
                     <!-- WE NEED TO CHANGE THIS IMAGE!! This was 'borrowed' as a placeholder... -->
                     <img src="{{ asset('images/img_avatar2.png') }}" alt="Avatar" class="avatar">

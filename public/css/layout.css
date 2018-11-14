@@ -37,10 +37,13 @@
   /* Added for layout on default app blade - JVH*/
   body {
     transition: background-color .5s;
+    /*  Yeah, it's kinda ugly. Is there something else we can
+    do, like perhaps a card or a well?
     background-image: url('../images/NannosBG.png');
     background-repeat: no-repeat;
     background-position: right bottom;
     background-attachment: fixed;
+    */
 }
 
 .sidenav {
