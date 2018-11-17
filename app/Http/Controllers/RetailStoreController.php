@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RetailStoreRequest;
 use App\RetailStore;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class RetailStoreController extends Controller
 {
@@ -35,25 +37,39 @@ class RetailStoreController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RetailStoreRequest $request)
     {
-        //
-        $retailstore = new RetailStore();
+//        $attributes = request()->validate([
+//                'StoreCode' => 'required',
+//                'StoreName' => 'required',
+//                'Address' => 'required',
+//                'City' => 'required',
+//                'State' => 'required',
+//                'ZIP' => 'required',
+//                'Phone' => 'required',
+//                'ManagerName' => 'required',
+//        ]);
 
-        $retailstore->StoreCode = request('StoreCode');
-        $retailstore->StoreName = request('StoreName');
-        $retailstore->Address = request('Address');
-        $retailstore->City = request('City');
-        $retailstore->State = request('State');
-        $retailstore->ZIP = request('ZIP');
-        $retailstore->Phone = request('Phone');
-        $retailstore->ManagerName = request('ManagerName');
-        $retailstore->ActiveStatus = true;
+        $validated = $request->validated();
 
-        $retailstore->save();
+
+//        RetailStore::create(request()->all());
+        RetailStore::create($validated);
+//        RetailStore::create(
+//            [
+//                'StoreCode' => request('StoreCode'),
+//                'StoreName' => request('StoreName'),
+//                'Address' => request('Address'),
+//                'City' => request('City'),
+//                'State' => request('State'),
+//                'ZIP' => request('ZIP'),
+//                'Phone' => request('Phone'),
+//                'ManagerName' => request('ManagerName'),
+//                'ActiveStatus' => true
+//            ]
+//        );
 
         return redirect('/retailstores');
-//        return request()->all();
     }
 
     /**
@@ -62,11 +78,11 @@ class RetailStoreController extends Controller
      * @param  \App\RetailStore  $retailStore
      * @return \Illuminate\Http\Response
      */
-//    public function show(RetailStore $retailStore)
-    public function show($id)
+    public function show(RetailStore $retailStore)
+//    public function show($id)
     {
-        $retailstore = RetailStore::find($id);
-        return view('retailstores.show')->with('retailstore', $retailstore);
+//        $retailstore = RetailStore::find($id);
+        return view('retailstores.show', compact('retailStore'));
     }
 
     /**
@@ -75,11 +91,11 @@ class RetailStoreController extends Controller
      * @param  \App\RetailStore  $retailStore
      * @return \Illuminate\Http\Response
      */
-//    public function edit(RetailStore $retailStore)
-    public function edit($StoreId)
+    public function edit(RetailStore $retailstore)
+//    public function edit($StoreId)
     {
         //
-        $retailstore = RetailStore::findOrFail($StoreId);
+//        $retailstore = RetailStore::findOrFail($StoreId);
 //        return $retailstore;
         return view('retailstores.edit', compact('retailstore'));
 
@@ -93,19 +109,9 @@ class RetailStoreController extends Controller
      * @param  \App\RetailStore  $retailStore
      * @return \Illuminate\Http\Response
      */
-//    public function update(Request $request, RetailStore $retailStore)
-    public function update(Request $request, $id)
+    public function update(Request $request, RetailStore $retailStore)
     {
-        $retailstore = RetailStore::find($id);
-        $retailstore->StoreCode = request('StoreCode');
-        $retailstore->StoreName = request('StoreName');
-        $retailstore->Address = request('Address');
-        $retailstore->City = request('City');
-        $retailstore->State = request('State');
-        $retailstore->ZIP = request('ZIP');
-        $retailstore->Phone = request('Phone');
-        $retailstore->ManagerName = request('ManagerName');
-        $retailstore->save();
+        $retailStore->update(request()->all());
 
         return redirect('retailstores')->with('success', 'Store Updated');
     }
@@ -119,9 +125,9 @@ class RetailStoreController extends Controller
     public function destroy($StoreId)
     {
         //
-        $store = RetailStore::find($StoreId);
-        $store->ActiveStatus = 'Disabled';
-        $store->save();
+        $retailStore = RetailStore::find($StoreId);
+        $retailStore->ActiveStatus = 'Disabled';
+        $retailStore->save();
 
         return redirect('retailstores')->with('success', 'Location Removed');
     }

@@ -16,6 +16,7 @@
             <h1>Nanno's Foods</h1>
             <p>Welcome to Nanno Food's Online Management System</p>
             <button onclick="document.getElementById('id01').style.display='block'">Login</button>
+            </div>
         </div>
         <!-- The Modal -->
         <div id="id01" class="modal">
