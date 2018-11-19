@@ -110,18 +110,20 @@ class DeliveryController extends Controller
                 $inventory->ItemId = $orderDetails->ItemId;
                 $inventory->QuantityInStock = $orderDetails->QuantityOrdered;
             }else{
-                $inventory->QuantityInStock = $inventory->QuantityInStock + $orderDetails->QuantityOrdered;
+                foreach($inventory as $inventory){
+                    $inventory->QuantityInStock = $inventory->QuantityInStock + $orderDetails->QuantityOrdered;
+                }
             }
 
             $inventory->save();
         }
 
         $order = Order::find($id);
-        $order->DateTimeOfFulfilment = $request->DateTimeOfFulfilment;
+        $order->DateTimeOfFulfilment = null;
         $order->Status = 'Delivered';
         $order->save();
 
-        return redirect('delivery');
+        return redirect('order');
     }
 
     /**

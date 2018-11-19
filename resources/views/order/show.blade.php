@@ -18,4 +18,11 @@
         <hr />
         <p><a href="./{{$orderData->OrderId}}/edit" class="btn btn-md btn-primary" role="button">Add new item</a></p>
         </div>
+        <form method="post" action="/delivery/{{ $orderData->OrderId }}">
+            @method('PATCH')
+            @csrf
+            <div class="form-group">
+            </div>
+            <button type="submit" class="btn btn-primary">Order Delivered</button>
+        </form>
 @endsection

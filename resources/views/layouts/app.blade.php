@@ -31,7 +31,7 @@
                 Customers
             </a>
             <a href="{{ url('retailstores') }}">
-                <i class="material-icons">shopping_cart</i>
+                <i class="material-icons">store</i>
                 Store Locations
             </a>
             <a href="{{ url('item') }}">
@@ -45,6 +45,10 @@
             <a href="{{ url('order') }}">
                 <i class="material-icons">shopping_cart</i>
                 Orders
+            </a>
+            <a href="{{ url('return') }}">
+                <i class="material-icons">assignment_returned</i>
+                Returns
             </a>
             <a class="nav-link active" href="{{ url('/') }}">
                 <i class="material-icons">subdirectory_arrow_left</i>

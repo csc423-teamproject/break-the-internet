@@ -5,13 +5,11 @@
 @section('content')
     <h2>Orders</h2>
     <div class="col-md-6">
-        @if(count($orderData->where("Status", 'Pending')) >= 1)
+        @if(count($ordersData) >= 1)
             <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search for orders...">
             <ul id="searchUL">
                 @foreach($orderData as $orderData)
-                    @if($orderData->Status == 'Pending')
-                        <li><a href="./order/{{$orderData->OrderId}}">{{$orderData->OrderId}}</a></li>
-                    @endif
+                        <li><a href="./order/{{$orderData->OrderId}}">{{$orderData->VendorName}} &#8594; {{$orderData->StoreName}}, ({{$orderData->OrderId}})</a></li>
                 @endforeach
             </ul>
         @else

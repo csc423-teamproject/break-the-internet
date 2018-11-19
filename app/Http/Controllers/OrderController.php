@@ -20,8 +20,16 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orderData = Order::all();
-        return view('order.index')->with('orderData', $orderData);
+        $ordersData = Order::all()->where("Status","=" ,'Pending');
+        $orderData = DB::table('orders')
+        ->where('Status', '=', 'Pending')
+        ->join('vendors', 'vendors.VendorId', '=', 'orders.VendorId')
+        ->join('retail_stores', 'retail_stores.StoreId', '=', 'orders.StoreId')
+        ->select('OrderId', 'retail_stores.StoreName', 'vendors.VendorName')
+        ->get();
+        return view('order.index')
+                    ->with('ordersData', $ordersData)
+                    ->with('orderData', $orderData);
     }
 
     /**
