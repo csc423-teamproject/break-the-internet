@@ -73,8 +73,8 @@ class DeliveryController extends Controller
         //$items = InventoryItem::all();
         $orderDetailData = DB::table('order_details')
                     ->where('OrderId', '=', $id)
-                    ->join('inventory_items', 'order_details.ItemId', '=', 'inventory_items.ItemId')
-                    ->select('OrderDetailId', 'OrderId', 'QuantityOrdered','inventory_items.Description')
+                    ->join('inventory_items', 'order_details.ItemId', '=', 'inventory_items.id')
+                    ->select('order_details.id', 'order_details.OrderId', 'order_details.QuantityOrdered','inventory_items.Description')
                     ->get();
         return view('delivery.edit')
         ->with('orderData', $orderData)
@@ -94,7 +94,8 @@ class DeliveryController extends Controller
     public function update(Request $request, $id)
     {
         $orderDetails = OrderDetail::all()->where('OrderId', '=', $id);
-        
+
+
 
         foreach($orderDetails as $orderDetails){
 
@@ -102,11 +103,12 @@ class DeliveryController extends Controller
 
             $inventory = Inventory::all()
                 ->where('ItemId', '=', $orderDetails->ItemId)
-                ->where('id', '=', $order->id);
+                ->where('StoreId', '=', $order->StoreId);
+//            dd($inventory);
 
             if($inventory->isEmpty()){ 
                 $inventory = new Inventory;
-                $inventory->id = $order->id;
+                $inventory->StoreId = $order->StoreId;
                 $inventory->ItemId = $orderDetails->ItemId;
                 $inventory->QuantityInStock = $orderDetails->QuantityOrdered;
             }else{
