@@ -79,10 +79,9 @@ class VendorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Vendor $vendor)
     {
-        $vendorData = Vendor::findOrFail($id);
-        return view('vendor.edit')->with('vendorData', $vendorData);
+        return view('vendor.edit', compact('vendor'));
     }
 
     /**
@@ -120,12 +119,9 @@ class VendorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Vendor $vendor)
     {
-        $vendor = Vendor::find($id);
-        $vendor->ActiveStatus = 'Disabled';
-        $vendor->save();
-
-        return redirect('vendor')->with('success', 'Vendor Removed');
+        $vendor->update(['ActiveStatus' => 'Disabled']);
+        return redirect('vendor')->with('status', 'Vendor Removed');
     }
 }
