@@ -34,7 +34,7 @@ class InventoryItemController extends Controller
         $vendors = Vendor::all();
         $categories = Category::all();
         $divisions = Division::all();
-        return view('inventoryItem.create', compact('vendors', 'categories', 'divisions'));
+        return view('inventoryitem.create', compact('vendors', 'categories', 'divisions'));
 //                    ->with('vendorData', $vendorData)
 //                    ->with('categories', $categories)
 //                    ->with('divisions', $divisions);
