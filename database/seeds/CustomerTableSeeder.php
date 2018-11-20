@@ -11,7 +11,7 @@ class CustomerTableSeeder extends Seeder
      */
     public function run()
     {
-        $limit = 50;
+        $limit = 10;
 
         factory(App\Customer::class, $limit)->create();
     }

@@ -77,7 +77,7 @@ class RetailStoreController extends Controller
      */
     public function update(RetailUpdateRequest $request, RetailStore $retailstore)
     {
-        $retailstore->update(request()->all());
+        $retailstore->update($request->validated());
 
         return redirect('retailstores')->with('status', 'Location Updated');
     }

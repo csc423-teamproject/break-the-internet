@@ -63,10 +63,9 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Customer $customer)
     {
-        $customerData = Customer::findOrFail($id);
-        return view('customer.edit')->with('customerData', $customerData);
+        return view('customer.edit', compact('customer'));
     }
 
     /**
@@ -76,17 +75,19 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CustomerStoreRequest $request, Customer $customer)
     {
-        $customer = Customer::find($id);
-        $customer->CustomerName = $request->input('CustomerName');
-        $customer->Address = $request->input('Address');
-        $customer->City = $request->input('City');
-        $customer->State = $request->input('State');
-        $customer->ZIP = $request->input('ZIP');
-        $customer->Phone = $request->input('Phone');
-        $customer->Email = $request->input('Email');
-        $customer->save();
+        $validated = $request->validated();
+//        $customer = Customer::find($id);
+//        $customer->CustomerName = $request->input('CustomerName');
+//        $customer->Address = $request->input('Address');
+//        $customer->City = $request->input('City');
+//        $customer->State = $request->input('State');
+//        $customer->ZIP = $request->input('ZIP');
+//        $customer->Phone = $request->input('Phone');
+//        $customer->Email = $request->input('Email');
+//        $customer->save();
+        $customer->update($validated);
 
         return redirect('customer')->with('status', 'Customer Updated');
     }
@@ -97,12 +98,13 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Customer $customer)
     {
-        $customer = Customer::find($id);
-        $customer->ActiveStatus = 'Disabled';
-        $customer->save();
+//        $customer = Customer::find($id);
+//        $customer->ActiveStatus = 'Disabled';
+        $customer->update(['ActiveStatus'=>'Disabled']);
 
-        return redirect('customer')->with('success', 'Customer Removed');
+
+        return redirect('customer')->with('status', 'Customer Removed');
     }
 }

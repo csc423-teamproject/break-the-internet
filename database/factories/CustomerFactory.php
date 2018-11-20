@@ -9,8 +9,8 @@ $factory->define(App\Customer::class, function (Faker $faker) {
         'City' => $faker->city,
         'State' => 'NY',
         'ZIP' => $faker->postcode,
-        'Phone' => $faker->phoneNumber,
-        'Email' => $faker->email,
+        'Phone' => $faker->numberBetween(200,888)."-".$faker->numberBetween(200,888)."-".$faker->numberBetween(1000,9000),
+        'Email' => $faker->safeEmail,
         'ActiveStatus' => 'Enabled',
     ];
 });

@@ -2,7 +2,7 @@
 
 @section('title', 'Add Store Location')
 
-@yield('heading', 'Add Retail Location')
+@section('heading', 'Add Retail Location')
 
 @section('content')
     <form method="post" action="/retailstores">

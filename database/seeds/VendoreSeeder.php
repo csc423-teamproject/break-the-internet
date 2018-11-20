@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class RetailStoresTableSeeder extends Seeder
+class VendoreSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +13,6 @@ class RetailStoresTableSeeder extends Seeder
     {
         $limit = 10;
 
-        factory(App\RetailStore::class, $limit)->create();
+        factory(App\Vendor::class, $limit)->create();
     }
 }
