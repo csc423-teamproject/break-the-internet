@@ -2,16 +2,17 @@
 
 @section('title', 'Store Location Maintenance')
 
-@section('content')
-    <h1>Retail Stores</h1>
+@section('heading', 'Retail Locations')
 
+
+@section('content')
     <div class="col-md-6">
         @if(count($stores->where("ActiveStatus", 'Enabled')) >= 1)
             <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search for stores...">
             <ul id="searchUL">
                 @foreach($stores as $store)
                     @if($store->ActiveStatus == 'Enabled')
-                        <li><a href="./retailstores/{{$store->StoreId}}/edit">{{$store->StoreName}} {{$store->StoreCode}}</a></li>
+                        <li><a href="/retailstores/{{$store->id}}/edit">{{$store->StoreName}} {{$store->StoreCode}}</a></li>
                     @endif
                 @endforeach
             </ul>

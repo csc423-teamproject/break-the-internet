@@ -2,10 +2,15 @@
 
 @section('title', 'Customer Maintenance')
 
+@section('heading', 'Are you sure you want to remove this customer?')
+
 @section('content')
-    <h1>Are you sure you want to delete this customer?</h1>
+    <div class="alert alert-info">
+        <h4>Customer Name: {{ $customer->CustomerName }}</h4><br>
+        <h4>Phone: {{ $customer->Phone }}</h4>
+    </div>
     <div class="form-inline">
-        <form method='POST' action="/customer/{{ $customerData->CustomerId }}">
+        <form method='POST' action="/customer/{{ $customer->CustomerId }}">
             @method('DELETE')
             @csrf
             <button type="submit" class="btn btn-danger">Yes</button>

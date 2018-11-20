@@ -13,5 +13,6 @@ class Customer extends Model
     //Timestamps
     public $timestamps = false;
 
+    protected $guarded = [];
     //protected $fillable = ['CustomerName', 'Address', 'City', 'StateCode', 'ZIP', 'Phone', 'email'];
 }

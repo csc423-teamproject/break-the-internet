@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedInteger('VendorId');
             $table->foreign('VendorId')->references('VendorId')->on('vendors');
             $table->unsignedInteger('StoreId');
-            $table->foreign('StoreId')->references('StoreId')->on('retail_stores');
+            $table->foreign('StoreId')->references('id')->on('retail_stores');
             $table->dateTime('DateTimeOfOrder')->nullable();
             $table->enum('Status', ['Open', 'Pending', 'Delivered', 'Canceled']);
             $table->dateTime('DateTimeOfFulfilment')->nullable();

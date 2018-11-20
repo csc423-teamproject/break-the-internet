@@ -24,7 +24,7 @@ class OrderController extends Controller
         $orderData = DB::table('orders')
         ->where('Status', '=', 'Pending')
         ->join('vendors', 'vendors.VendorId', '=', 'orders.VendorId')
-        ->join('retail_stores', 'retail_stores.StoreId', '=', 'orders.StoreId')
+        ->join('retail_stores', 'retail_stores.id', '=', 'orders.id')
         ->select('OrderId', 'retail_stores.StoreName', 'vendors.VendorName')
         ->get();
         return view('order.index')
@@ -59,7 +59,7 @@ class OrderController extends Controller
     {
         $order = new Order;
         $order->VendorId = $request->input('VendorId');
-        $order->StoreId = $request->input('StoreId');
+        $order->id = $request->input('id');
         $order->Status = 'Open';
         //$order->DateTimeOfOrder = 'null';
         //$order->DateTimeOfFulfilment = 'null';
@@ -81,7 +81,7 @@ class OrderController extends Controller
         //$orderDetailData = OrderDetail::all()
         //                       ->where('OrderId', '=', $id);
         $vendor = Vendor::find($orderData->VendorId);
-        $store = RetailStore::find($orderData->StoreId);
+        $store = RetailStore::find($orderData->id);
         //$items = InventoryItem::all();
         $orderDetailData = DB::table('order_details')
                     ->where('OrderId', '=', $id)

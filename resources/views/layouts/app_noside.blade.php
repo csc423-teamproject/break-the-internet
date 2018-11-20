@@ -21,7 +21,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>@yield('title', 'Nannos Food')</title>
+        <title>@yield('title')</title>
     </head>
     <body>
         <div id="mySidenav" class="sidenav">
@@ -58,30 +58,7 @@
         <div id="main">
             <img src="{{ asset('images/Nannos-alpha.png') }}" class=.img-responsive 
                 onclick="openNav()" style="cursor:pointer">
-
-            <h2>@yield('heading')</h2>
-
-            @if (session('status'))
-                <div class="alert alert-success alert-dismissible fade show w-25" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    {{ session('status') }}
-                </div>
-            @endif
-            @yield('content')
-            @if ($errors->any())
-                <div class="alert alert-danger alert-dismissible fade show w-50" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+                @yield('content')
         </div>
     </body>
 </html>

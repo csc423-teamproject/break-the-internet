@@ -4,6 +4,9 @@
 
 @section('content')
     <h2>Customers</h2>
+
+
+
     <div class="col-md-6">
         @if(count($customerData->where("ActiveStatus", 'Enabled')) >= 1)
             <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search for customers...">

@@ -37,23 +37,12 @@ class CustomerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CustomerStoreRequest $request)
     {
-       
 
+        Customer::create($request->validated());
 
-        $customer = new Customer;
-        $customer->CustomerName = $request->input('CustomerName');
-        $customer->Address = $request->input('Address');
-        $customer->City = $request->input('City');
-        $customer->State = $request->input('State');
-        $customer->ZIP = $request->input('ZIP');
-        $customer->Phone = $request->input('Phone');
-        $customer->Email = $request->input('Email');
-        $customer->ActiveStatus = 'Enabled';
-        $customer->save();
-
-        return redirect('customer')->with('success', 'Customer Added');
+        return redirect('customer')->with('status', 'Customer Added');
 
     }
 
@@ -63,10 +52,9 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Customer $customer)
     {
-        $customerData = Customer::find($id);
-        return view('customer.show')->with('customerData', $customerData);
+        return view('customer.show', compact('customer'));
     }
 
     /**
@@ -100,7 +88,7 @@ class CustomerController extends Controller
         $customer->Email = $request->input('Email');
         $customer->save();
 
-        return redirect('customer')->with('success', 'Customer Updated');
+        return redirect('customer')->with('status', 'Customer Updated');
     }
 
     /**

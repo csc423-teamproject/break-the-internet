@@ -69,7 +69,7 @@ class DeliveryController extends Controller
         //$orderDetailData = OrderDetail::all()
         //                       ->where('OrderId', '=', $id);
         $vendor = Vendor::find($orderData->VendorId);
-        $store = RetailStore::find($orderData->StoreId);
+        $store = RetailStore::find($orderData->id);
         //$items = InventoryItem::all();
         $orderDetailData = DB::table('order_details')
                     ->where('OrderId', '=', $id)
@@ -102,11 +102,11 @@ class DeliveryController extends Controller
 
             $inventory = Inventory::all()
                 ->where('ItemId', '=', $orderDetails->ItemId)
-                ->where('StoreId', '=', $order->StoreId);
+                ->where('id', '=', $order->id);
 
             if($inventory->isEmpty()){ 
                 $inventory = new Inventory;
-                $inventory->StoreId = $order->StoreId;
+                $inventory->id = $order->id;
                 $inventory->ItemId = $orderDetails->ItemId;
                 $inventory->QuantityInStock = $orderDetails->QuantityOrdered;
             }else{

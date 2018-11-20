@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class RetailStore extends Model
 {
     //
-    protected $primaryKey = 'StoreId';
+//    protected $primaryKey = 'id';
 //    protected $fillable = [
 //      'StoreCode', 'StoreName', 'Address',
 //      'City', 'State', 'ZIP', 'Phone', 'ManagerName',
@@ -18,6 +18,6 @@ class RetailStore extends Model
 //
 //    public function getRouteKeyName()
 //    {
-//        return 'StoreId';
+//        return 'id';
 //    }
 }

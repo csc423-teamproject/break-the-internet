@@ -24,20 +24,20 @@ class CustomerStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'CustomerName' => 'required|string|max:50',
-            'Address' => 'required|string|max:50',
-            'City' => 'required|string|max:50',
-            'State' => 'required|string|max:2',
-            'ZIP' => 'required|min:5',
-            'Phone' => 'required|min:10',
+            'CustomerName' => 'required|string|max:255',
+            'Address' => 'required|string|max:255',
+            'City' => 'required|string|max:255',
+            'State' => 'required|alpha|max:2',
+            'ZIP' => 'required|between:5,10',
+            'Phone' => 'required|phone:US,BE',
             'Email' => 'required|email'
         ];
     }
-
-    public function messages()
-    {
-        return [
-            'CustomerName.required' => 'Name is required!'
-        ];
-    }
+//
+//    public function messages()
+//    {
+//        return [
+//            'CustomerName.required' => 'Name is required!'
+//        ];
+//    }
 }

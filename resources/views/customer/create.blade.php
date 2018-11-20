@@ -37,8 +37,11 @@
                     <label>E-mail</Label>
                 <input type="email" class="form-control" name="Email" id="Email" placeholder="E-Mail">
             </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Add Customer</button>
+            </div>
+
         </div>
-        <button type="submit" class="btn btn-primary">Add Customer</button>
-        
+
     </form>
 @endsection

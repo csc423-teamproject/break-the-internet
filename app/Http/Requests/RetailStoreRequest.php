@@ -24,12 +24,11 @@ class RetailStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'StoreCode' => 'required|unique:retail_stores,StoreCode',
-            'StoreName' => 'required|alpha_dash|max:255',
-            'Address' => 'required|alpha_num|max:255',
-            'City' => 'required',
-            'State' => 'required|max:2',
-//            'ZIP' => 'required|regex:/(^\d{5}$)|(^\d{5}-\d{4}$)/i',
+            'StoreCode' => 'required|numeric|unique:retail_stores,StoreCode',
+            'StoreName' => 'required|string|max:255',
+            'Address' => 'required|string|max:255',
+            'City' => 'required|string|:max:255',
+            'State' => 'required|alpha|max:2',
             'ZIP' => 'required|between:5,10',
             'Phone' => 'required|phone:US,BE',
             'ManagerName' => 'required|string|min:1|max:255',

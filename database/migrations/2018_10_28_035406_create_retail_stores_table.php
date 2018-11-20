@@ -14,7 +14,7 @@ class CreateRetailStoresTable extends Migration
     public function up()
     {
         Schema::create('retail_stores', function (Blueprint $table) {
-            $table->increments('StoreId');
+            $table->increments('id');
             $table->unsignedInteger('StoreCode');
             $table->unique('StoreCode');
             $table->string('StoreName');

@@ -16,7 +16,7 @@ class CreateInventoriesTable extends Migration
         Schema::create('inventories', function (Blueprint $table) {
             $table->increments('InventoryId');
             $table->unsignedInteger('StoreId');
-            $table->foreign('StoreId')->references('StoreId')->on('retail_stores');
+            $table->foreign('StoreId')->references('id')->on('retail_stores');
             $table->unsignedInteger('ItemId');
             $table->foreign('ItemId')->references('ItemId')->on('inventory_items');
             $table->unsignedInteger('QuantityInStock');
