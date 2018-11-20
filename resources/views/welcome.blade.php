@@ -20,12 +20,11 @@
         </div>
         <!-- The Modal -->
         <div id="id01" class="modal">
-            <span onclick="document.getElementById('id01').style.display='none'" 
-                class="close" title="Close Modal">&times;</span>
-
             <!-- Modal Content -->
             <form class="modal-content animate" action="{{ url('landing') }}">
                 <div class="imgcontainer">
+                    <span onclick="document.getElementById('id01').style.display='none'" 
+                        class="close" title="Close Modal">&times;</span>
                     <!-- WE NEED TO CHANGE THIS IMAGE!! This was 'borrowed' as a placeholder... -->
                     <img src="{{ asset('images/img_avatar2.png') }}" alt="Avatar" class="avatar">
                 </div>
