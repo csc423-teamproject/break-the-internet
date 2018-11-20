@@ -56,7 +56,7 @@
             </a>
         </div>
         <div id="main">
-            <img src="{{ asset('images/Nannos-alpha.png') }}" class=.img-responsive 
+            <img src="{{ asset('images/nannos_menu_icon.png') }}" class=.img-responsive 
                 onclick="openNav()" style="cursor:pointer">
 
             <h2>@yield('heading')</h2>
