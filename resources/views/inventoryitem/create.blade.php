@@ -27,7 +27,7 @@
                             @endif
                         @endforeach
                     </select>
-                <p><a href="/division/create/">Add division</a></p>
+                <small><a href="/division/create/">Add division</a></small>
             </div>
             <div class="form-group">
                     <label>Department</Label>
@@ -42,7 +42,7 @@
                                 @endif
                             @endforeach
                         </select>
-                        <p><a href="/category/create/">Add category</a></p>
+                        <small><a href="/category/create/">Add category</a></small>
             </div>
             <div class="form-group">
                     <label>Item Cost</Label>

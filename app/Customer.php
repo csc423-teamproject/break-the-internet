@@ -9,7 +9,6 @@ class Customer extends Model
     //Table Name
     protected $table = 'customers';
     //Primary Key
-    public $primaryKey = 'CustomerId';
     //Timestamps
     public $timestamps = false;
 

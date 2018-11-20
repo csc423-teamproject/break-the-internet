@@ -1,13 +1,14 @@
 @extends('layouts.app')
 
 @section('title', 'Customer Maintenance')
-
+@section('heading', 'Modify Customer')
 @section('content')
-    <h2>Modify Customer</h2>
 
-    <form method="post" action="/customer/{{ $customer->CustomerId }}">
+    <form method="post" action="/customer/{{ $customer->id }}">
         @method('PATCH')
         @csrf
+        <div class="card shadow-sm p-3 m-2"> <!-- Adjust this -->
+
             <div class="form-group">
                 <label>Customer Name</Label>
                 <input type="text" class="form-control {{ $errors->has('CustomerName') ? 'border-danger' : ''}}" name="CustomerName" id="CustomerName" placeholder="Customer Name" value="{{ old('CustomerName') ? old('CustomerName') : $customer->CustomerName }}">
@@ -42,9 +43,11 @@
                 <input type="email" class="form-control {{ $errors->has('Email') ? 'border-danger' : ''}}" name="Email" id="Email" placeholder="E-Mail" value="{{ old('Email') ? old('Email') : $customer->Email }}">
 
             </div>
-        <button type="submit" class="btn btn-primary">Modify Customer</button>
-
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Modify Customer</button>
+                <hr>
+                <a href="./../../customer/{{$customer->id}}/" class="btn btn-md btn-danger" role="button">Delete this customer</a>
+            </div>
+        </div>
     </form>
-    <hr />
-    <p><a href="./../../customer/{{$customer->CustomerId}}/" class="btn btn-md btn-danger" role="button">Delete this customer</a></p>
 @endsection

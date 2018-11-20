@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
 @section('title', 'Customer Maintenance')
-
+@section('heading', 'Add Customer')
 @section('content')
-    <h1>Add Customer</h1>
     <form action="/customer" method="post">
         @csrf
         <div class="card shadow-sm p-3 m-2"> <!-- Adjust this -->
