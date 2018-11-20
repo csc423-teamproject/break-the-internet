@@ -22,11 +22,11 @@ class OrderController extends Controller
     {
         $ordersData = Order::all()->where("Status","=" ,'Pending');
         $orderData = DB::table('orders')
-        ->where('Status', '=', 'Pending')
-        ->join('vendors', 'vendors.id', '=', 'orders.VendorId')
-        ->join('retail_stores', 'retail_stores.id', '=', 'orders.id')
-        ->select('OrderId', 'retail_stores.StoreName', 'vendors.VendorName')
-        ->get();
+            ->where('Status', '=', 'Pending')
+            ->join('vendors', 'vendors.id', '=', 'orders.VendorId')
+            ->join('retail_stores', 'retail_stores.id', '=', 'orders.StoreId')
+            ->select('orders.id', 'retail_stores.StoreName', 'vendors.VendorName')
+            ->get();
         return view('order.index')
                     ->with('ordersData', $ordersData)
                     ->with('orderData', $orderData);
@@ -39,13 +39,13 @@ class OrderController extends Controller
      */
     public function create()
     {
-        $storeData = RetailStore::all();
-        $vendorData = Vendor::all();
-        $itemData = InventoryItem::all();
+        $stores = RetailStore::all();
+        $vendors = Vendor::all();
+        $items = InventoryItem::all();
         return view('order.create')
-                    ->with('storeData', $storeData)
-                    ->with('vendorData', $vendorData)
-                    ->with('itemData', $itemData);
+                    ->with('stores', $stores)
+                    ->with('vendors', $vendors)
+                    ->with('items', $items);
 
     }
 
@@ -59,13 +59,13 @@ class OrderController extends Controller
     {
         $order = new Order;
         $order->VendorId = $request->input('VendorId');
-        $order->id = $request->input('id');
+        $order->StoreId = $request->input('StoreId');
         $order->Status = 'Open';
         //$order->DateTimeOfOrder = 'null';
         //$order->DateTimeOfFulfilment = 'null';
         $order->save();
 
-        $thisOrder = "./order/".$order->OrderId."/edit";
+        $thisOrder = "./order/".$order->id."/edit";
         return redirect($thisOrder);
     }
 
@@ -85,9 +85,11 @@ class OrderController extends Controller
         //$items = InventoryItem::all();
         $orderDetailData = DB::table('order_details')
                     ->where('OrderId', '=', $id)
-                    ->join('inventory_items', 'order_details.ItemId', '=', 'inventory_items.ItemId')
-                    ->select('OrderDetailId', 'OrderId', 'QuantityOrdered','inventory_items.Description')
+                    ->join('inventory_items', 'order_details.ItemId', '=', 'inventory_items.id')
+                    ->select('order_details.id', 'order_details.OrderId', 'order_details.QuantityOrdered','inventory_items.Description')
                     ->get();
+//        dd($orderDetailData);
+
         return view('order.show')
         ->with('orderData', $orderData)
                             //->with('items', $items)
