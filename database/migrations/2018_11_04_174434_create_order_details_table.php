@@ -14,11 +14,11 @@ class CreateOrderDetailsTable extends Migration
     public function up()
     {
         Schema::create('order_details', function (Blueprint $table) {
-            $table->increments('OrderDetailId');
+            $table->increments('id');
             $table->unsignedInteger('OrderId');
-            $table->foreign('OrderId')->references('OrderId')->on('orders');
+            $table->foreign('OrderId')->references('id')->on('orders');
             $table->unsignedInteger('ItemId');
-            $table->foreign('ItemId')->references('ItemId')->on('inventory_items');
+            $table->foreign('ItemId')->references('id')->on('inventory_items');
             $table->unsignedInteger('QuantityOrdered');
             $table->timestamps();
         });

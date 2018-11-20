@@ -14,7 +14,7 @@ class CreateInventoryItemsTable extends Migration
     public function up()
     {
         Schema::create('inventory_items', function (Blueprint $table) {
-            $table->increments('ItemId');
+            $table->increments('id');
             $table->string('Description');
             $table->string('Size');
             $table->string('Division');

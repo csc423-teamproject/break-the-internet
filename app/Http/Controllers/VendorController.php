@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\VendorStoreRequest;
+use App\Http\Requests\VendorUpdateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use DB;
@@ -91,24 +92,26 @@ class VendorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(VendorUpdateRequest $request, Vendor $vendor)
     {
-        $vendor = Vendor::find($id);
+//        $vendor = Vendor::find($id);
+//
+//        $vendor->VendorCode = request('VendorCode');
+//        $vendor->VendorName = request('VendorName');
+//        $vendor->Address = request('Address');
+//        $vendor->City = request('City');
+//        $vendor->State = request('State');
+//        $vendor->ZIP = request('ZIP');
+//        $vendor->Phone = request('Phone');
+//        $vendor->ContactPersonName = request('ContactPersonName');
+//        $vendor->Password = request('Password');
+//        $vendor->ActiveStatus = true;
+//
+//        $vendor->save();
 
-        $vendor->VendorCode = request('VendorCode');
-        $vendor->VendorName = request('VendorName');
-        $vendor->Address = request('Address');
-        $vendor->City = request('City');
-        $vendor->State = request('State');
-        $vendor->ZIP = request('ZIP');
-        $vendor->Phone = request('Phone');
-        $vendor->ContactPersonName = request('ContactPersonName');
-        $vendor->Password = request('Password');
-        $vendor->ActiveStatus = true;
+        $vendor->update($request->validated());
 
-        $vendor->save();
-
-        return redirect('/vendor');
+        return redirect('/vendor')->with('status', 'Vendor Updated');
     }
 
     /**

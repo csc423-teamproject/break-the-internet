@@ -14,11 +14,11 @@ class CreateInventoriesTable extends Migration
     public function up()
     {
         Schema::create('inventories', function (Blueprint $table) {
-            $table->increments('InventoryId');
+            $table->increments('id');
             $table->unsignedInteger('StoreId');
             $table->foreign('StoreId')->references('id')->on('retail_stores');
             $table->unsignedInteger('ItemId');
-            $table->foreign('ItemId')->references('ItemId')->on('inventory_items');
+            $table->foreign('ItemId')->references('id')->on('inventory_items');
             $table->unsignedInteger('QuantityInStock');
             $table->timestamps();
         });

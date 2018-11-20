@@ -14,11 +14,11 @@ class CreateReturnToVendorDetailsTable extends Migration
     public function up()
     {
         Schema::create('return_to_vendor_details', function (Blueprint $table) {
-            $table->increments('ReturnToVendorDetailId');
+            $table->increments('id');
             $table->unsignedInteger('ReturnToVendorId');
-            $table->foreign('ReturnToVendorId')->references('ReturnToVendorId')->on('return_to_vendors');
+            $table->foreign('ReturnToVendorId')->references('id')->on('return_to_vendors');
             $table->unsignedInteger('ItemId');
-            $table->foreign('ItemId')->references('ItemId')->on('inventory_items');
+            $table->foreign('ItemId')->references('id')->on('inventory_items');
             $table->unsignedInteger('QuantityReturned');
             $table->timestamps();
         });

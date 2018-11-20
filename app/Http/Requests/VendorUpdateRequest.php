@@ -25,7 +25,7 @@ class VendorUpdateRequest extends FormRequest
     {
         return [
             'VendorCode' => 'required|numeric|unique:vendors,id,'.$this->id,
-            'Vendor' => 'required|string|max:255',
+            'VendorName' => 'required|string|max:255',
             'Address' => 'required|string|max:255',
             'City' => 'required|string|max:255',
             'State' => 'required|alpha|max:2',
