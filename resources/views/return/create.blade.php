@@ -9,9 +9,9 @@
         <div>
                 <label>Vendor</Label>
                     <select class="form-control" name="VendorId" id="VendorId">
-                            @foreach($vendorData as $vendorData)
-                            @if($vendorData->ActiveStatus == 'Enabled')
-                                <option value={{$vendorData->id}}>{{$vendorData->VendorName}}</option>
+                            @foreach($vendorData as $vendor)
+                            @if($vendor->ActiveStatus == 'Enabled')
+                                <option value={{$vendor->id}}>{{$vendor->VendorName}}</option>
                             @endif
                         @endforeach
                     </select>
@@ -19,9 +19,9 @@
         <div>
             <label>Store</Label>
                 <select class="form-control" name="StoreId" id="StoreId">
-                        @foreach($storeData as $storeData)
-                            @if($storeData->ActiveStatus == 'Enabled')
-                                <option value={{$storeData->StoreId}}>{{$storeData->StoreName}}</option>
+                        @foreach($storeData as $store)
+                            @if($store->ActiveStatus == 'Enabled')
+                                <option value={{$store->id}}>{{$store->StoreName}}</option>
                             @endif
                         @endforeach
                     </select>

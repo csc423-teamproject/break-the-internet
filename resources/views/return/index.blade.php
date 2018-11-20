@@ -9,7 +9,7 @@
         <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search for orders...">
         <ul id="searchUL">
             @foreach($returnData as $returnData)
-                <li><a href="./return/{{$returnData->ReturnToVendorId}}">{{$returnData->StoreName}} &#8594; {{$returnData->VendorName}}, ({{$returnData->ReturnToVendorId}})</a></li>
+                <li><a href="./return/{{$returnData->id}}">{{$returnData->StoreName}} &#8594; {{$returnData->VendorName}}, ({{$returnData->id}})</a></li>
             @endforeach
         </ul>
     @else

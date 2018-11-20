@@ -66,7 +66,7 @@ class ReturnController extends Controller
         $return->Status = 'Pending';
         $return->save();
 
-        $thisReturn = "./return/".$return->ReturnToVendorId."/edit";
+        $thisReturn = "./return/".$return->id."/edit";
         return redirect($thisReturn);
     }
 
@@ -86,8 +86,8 @@ class ReturnController extends Controller
         //$items = InventoryItem::all();
         $returnDetailData = DB::table('return_to_vendor_details')
                     ->where('ReturnToVendorId', '=', $id)
-                    ->join('inventory_items', 'return_to_vendor_details.ItemId', '=', 'inventory_items.ItemId')
-                    ->select('ReturnToVendorDetailId', 'ReturnToVendorId', 'QuantityReturned','inventory_items.Description')
+                    ->join('inventory_items', 'return_to_vendor_details.ItemId', '=', 'inventory_items.id')
+                    ->select('return_to_vendor_details.id', 'return_to_vendor_details.ReturnToVendorId', 'return_to_vendor_details.QuantityReturned','inventory_items.Description')
                     ->get();
         return view('return.show')
         ->with('returnData', $returnData)

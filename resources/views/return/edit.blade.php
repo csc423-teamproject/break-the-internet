@@ -5,14 +5,14 @@
 @section('content')
 
 <h2>Add item to return</h2>
-    <form method="post" action="/return/{{ $returnData->ReturnToVendorId }}">
+    <form method="post" action="/return/{{ $returnData->id }}">
         @method('PATCH')
         @csrf
         <div class="form-group">
                 <label>Item</Label>
                     <select class="form-control" name="ItemId" id="ItemId">
                         @foreach($items as $items)
-                                <option value={{$items->ItemId}}>{{$items->Description}}</option>
+                                <option value={{$items->id}}>{{$items->Description}}</option>
                         @endforeach
                     </select>
                 <label>Quantity</label>
