@@ -32,7 +32,7 @@ class VendorStoreRequest extends FormRequest
             'ZIP' => 'required|between:5,10',
             'Phone' => 'required|phone:US,BE',
             'ContactPersonName' => 'required|string|min:1|max:255',
-            'Password' => 'required|confirmed',
+            'Password' => 'required|min:8|confirmed',
         ];
     }
 }
