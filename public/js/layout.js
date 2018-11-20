@@ -30,12 +30,20 @@ $(document).ready(function() {
 
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
+    document.getElementById("main").style.marginLeft = "300px";
     document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    var navEls = document.getElementsByClassName("navtext");
+    for (i = 0; i < navEls.length; i++) {
+        navEls[i].style.display = "inline";
+    }
 }
 
 function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
+    document.getElementById("mySidenav").style.width = "50px";
+    document.getElementById("main").style.marginLeft= "50px";
     document.body.style.backgroundColor = "white";
+    var navEls = document.getElementsByClassName("navtext");
+    for (i = 0; i < navEls.length; i++) {
+        navEls[i].style.display = "none";
+    }
 }

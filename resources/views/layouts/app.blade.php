@@ -26,33 +26,33 @@
     <body>
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">close</a>
-            <a href="{{ url('customer') }}">
+            <a href="{{ url('customer') }}">                
+                <span class="navtext" style="display: none;">Customers</span>
                 <i class="material-icons">group</i>
-                Customers
             </a>
             <a href="{{ url('retailstores') }}">
+                <span class="navtext" style="display: none;">Store Locations</span>
                 <i class="material-icons">store</i>
-                Store Locations
             </a>
             <a href="{{ url('item') }}">
+                <span class="navtext" style="display: none;">Inventory</span>
                 <i class="material-icons">poll</i>
-                Inventory
             </a>
             <a href="{{ url('vendor') }}">
+                <span class="navtext" style="display: none;">Vendors</span>
                 <i class="material-icons">perm_contact_calendar</i>
-                Vendors
             </a>
             <a href="{{ url('order') }}">
+                <span class="navtext" style="display: none;">Orders</span>
                 <i class="material-icons">shopping_cart</i>
-                Orders
             </a>
             <a href="{{ url('return') }}">
+                <span class="navtext" style="display: none;">Returns</span>
                 <i class="material-icons">assignment_returned</i>
-                Returns
             </a>
             <a class="nav-link active" href="{{ url('/') }}">
+                <span class="navtext" style="display: none;">Exit</span>
                 <i class="material-icons">subdirectory_arrow_left</i>
-                Exit
             </a>
         </div>
         <div id="main">
