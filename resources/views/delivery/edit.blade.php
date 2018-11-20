@@ -3,7 +3,7 @@
 @section('title', 'Item Maintenance')
 
 @section('content')
-    <h1>Order: {{$orderData->OrderId}}</h1>
+    <h1>Order: {{$orderData->id}}</h1>
     <h3>Vendor: {{$vendor->VendorName}}</h3>
     <h3>Store: {{$store->StoreName}}</h3>
     <hr />
