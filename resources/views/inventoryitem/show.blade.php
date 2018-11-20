@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
 @section('title', 'Item Maintenance')
-
+@section('heading', 'Are you sure you want to delete this item?')
 @section('content')
-    <h1>Are you sure you want to delete this item?</h1>
+    <div class="alert alert-info">
+        <h4>Description: {{ $item->Description }}</h4><br>
+    </div>
     <div class="form-inline">
-        <form method='POST' action="/item/{{ $itemData->ItemId }}">
+        <form method='POST' action="/item/{{ $item->id }}">
             @method('DELETE')
             @csrf
             <button type="submit" class="btn btn-danger">Yes</button>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ItemStoreRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use DB;
@@ -19,8 +20,8 @@ class InventoryItemController extends Controller
      */
     public function index()
     {
-        $itemData = InventoryItem::all();
-        return view('inventoryitem.index')->with('itemData', $itemData);
+        $items = InventoryItem::all();
+        return view('inventoryitem.index', compact('items'));
     }
 
     /**
@@ -30,13 +31,13 @@ class InventoryItemController extends Controller
      */
     public function create()
     {
-        $vendorData = Vendor::all();
+        $vendors = Vendor::all();
         $categories = Category::all();
         $divisions = Division::all();
-        return view('inventoryItem.create')
-                    ->with('vendorData', $vendorData)
-                    ->with('categories', $categories)
-                    ->with('divisions', $divisions);
+        return view('inventoryItem.create', compact('vendors', 'categories', 'divisions'));
+//                    ->with('vendorData', $vendorData)
+//                    ->with('categories', $categories)
+//                    ->with('divisions', $divisions);
     }
 
     /**
@@ -45,23 +46,24 @@ class InventoryItemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ItemStoreRequest $request)
     {
+        InventoryItem::create($request->validated());
         
-        $item = new InventoryItem;
-        $item->Description = $request->input('Description');
-        $item->Size = $request->input('Size');
-        $item->Division = $request->input('Division');
-        $item->Department = $request->input('Department');
-        $item->Category = $request->input('Category');
-        $item->ItemCost = $request->input('ItemCost');
-        $item->ItemRetail = $request->input('ItemRetail');
-        $item->ImageFileName = $request->input('ImageFileName');
-        $item->VendorId = $request->input('VendorId');
-        $item->ActiveStatus = 'Enabled';
-        $item->save();
+//        $item = new InventoryItem;
+//        $item->Description = $request->input('Description');
+//        $item->Size = $request->input('Size');
+//        $item->Division = $request->input('Division');
+//        $item->Department = $request->input('Department');
+//        $item->Category = $request->input('Category');
+//        $item->ItemCost = $request->input('ItemCost');
+//        $item->ItemRetail = $request->input('ItemRetail');
+//        $item->ImageFileName = $request->input('ImageFileName');
+//        $item->VendorId = $request->input('VendorId');
+//        $item->ActiveStatus = 'Enabled';
+//        $item->save();
 
-        return redirect('item')->with('success', 'Item Added');
+        return redirect('item')->with('status', 'Item Added');
 
     }
 
@@ -71,10 +73,9 @@ class InventoryItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(InventoryItem $item)
     {
-        $itemData = InventoryItem::find($id);
-        return view('inventoryitem.show')->with('itemData', $itemData);
+        return view('inventoryitem.show', compact('item'));
     }
 
     /**
@@ -85,13 +86,13 @@ class InventoryItemController extends Controller
      */
     public function edit($id)
     {
-        $itemData = InventoryItem::findOrFail($id);
-        $vendorData = Vendor::all();
+        $item = InventoryItem::findOrFail($id);
+        $vendors = Vendor::all();
         $categories = Category::all();
         $divisions = Division::all();
         return view('inventoryitem.edit')
-                    ->with('itemData', $itemData)
-                    ->with('vendorData', $vendorData)
+                    ->with('item', $item)
+                    ->with('vendors', $vendors)
                     ->with('categories', $categories)
                     ->with('divisions', $divisions);
     }
@@ -103,21 +104,22 @@ class InventoryItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ItemStoreRequest $request, InventoryItem $item)
     {
-        $item = InventoryItem::find($id);
-        $item->Description = $request->input('Description');
-        $item->Size = $request->input('Size');
-        $item->Division = $request->input('Division');
-        $item->Department = $request->input('Department');
-        $item->Category = $request->input('Category');
-        $item->ItemCost = $request->input('ItemCost');
-        $item->ItemRetail = $request->input('ItemRetail');
-        $item->ImageFileName = $request->input('ImageFileName');
-        $item->VendorId = $request->input('VendorId');
-        $item->save();
+        $item->update($request->validated());
+//        $item = InventoryItem::find($id);
+//        $item->Description = $request->input('Description');
+//        $item->Size = $request->input('Size');
+//        $item->Division = $request->input('Division');
+//        $item->Department = $request->input('Department');
+//        $item->Category = $request->input('Category');
+//        $item->ItemCost = $request->input('ItemCost');
+//        $item->ItemRetail = $request->input('ItemRetail');
+//        $item->ImageFileName = $request->input('ImageFileName');
+//        $item->VendorId = $request->input('VendorId');
+//        $item->save();
 
-        return redirect('item')->with('success', 'Item Updated');
+        return redirect('item')->with('status', 'Item Updated');
     }
 
     /**

@@ -11,7 +11,7 @@
         <div class="card shadow-sm p-3 m-2"> <!-- Adjust this -->
             <div class="form-group">
                 <label for="StoreCode" class="col-form-label">Store Code</label>
-                <input type="text" class="form-control {{ $errors->has('StoreCode') ? 'border-danger' : ''}}" name="StoreCode" placeholder="Store Code" value="{{ old('StoreCode') ? old('StoreCode') : $retailstore->StoreCode }}">
+                <input type="text" class="form-control {{ $errors->has('StoreCode') ? 'border-danger' : ''}}" name="StoreCode" placeholder="Store Code" value="{{ old('StoreCode', $retailstore->StoreCode) }}">
             </div>
             <div class="form-group">
                 <label for="StoreName" class="col-form-label">Store Name</label>

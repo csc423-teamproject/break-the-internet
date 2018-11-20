@@ -6,6 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class InventoryItem extends Model
 {
-    protected $primaryKey = 'ItemId';
-    protected $guard = [];
+    protected $guarded = [];
 }

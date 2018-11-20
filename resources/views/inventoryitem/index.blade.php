@@ -1,16 +1,15 @@
 @extends('layouts.app')
 
 @section('title', 'Item Maintenance')
-
+@section('heading', 'Inventory Items')
 @section('content')
-    <h2>Add/Modify/Delete Item</h2>
     <div class="col-md-6">
-        @if(count($itemData->where("ActiveStatus", 'Enabled')) >= 1)
+        @if(count($items->where("ActiveStatus", 'Enabled')) >= 1)
             <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search for items...">
             <ul id="searchUL">
-                @foreach($itemData as $itemData)
-                    @if($itemData->ActiveStatus == 'Enabled')
-                        <li><a href="./item/{{$itemData->ItemId}}/edit">{{$itemData->Description}}</a></li>
+                @foreach($items as $item)
+                    @if($item->ActiveStatus == 'Enabled')
+                        <li><a href="./item/{{$item->id}}/edit">{{$item->Description}}</a></li>
                     @endif
                 @endforeach
             </ul>
