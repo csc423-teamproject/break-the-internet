@@ -28,7 +28,7 @@ class ReturnController extends Controller
         ->where('Status', '=', 'Pending')
         ->join('vendors', 'vendors.id', '=', 'return_to_vendors.VendorId')
         ->join('retail_stores', 'retail_stores.id', '=', 'return_to_vendors.StoreId')
-        ->select('ReturnToVendorId', 'retail_stores.StoreName', 'vendors.VendorName')
+        ->select('return_to_vendors.id', 'retail_stores.StoreName', 'vendors.VendorName')
         ->get();
         return view('return.index')
                 ->with('returnData', $returnData)
