@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VendorStoreRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use DB;
@@ -16,8 +17,8 @@ class VendorController extends Controller
      */
     public function index()
     {
-        $vendorData = Vendor::all();
-        return view('vendor.index')->with('vendorData', $vendorData);
+        $vendors = Vendor::all()->where('ActiveStatus', '==', true);
+        return view('vendor.index', compact('vendors'));
     }
 
     /**
@@ -36,25 +37,27 @@ class VendorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VendorStoreRequest $request)
     {
-       
-        $vendor = new Vendor();
+        Vendor::create($request->validated());
+//       dd($validated = $request->validated());
+//
+//        $vendor = new Vendor();
+//
+//        $vendor->VendorCode = request('VendorCode');
+//        $vendor->VendorName = request('VendorName');
+//        $vendor->Address = request('Address');
+//        $vendor->City = request('City');
+//        $vendor->State = request('State');
+//        $vendor->ZIP = request('ZIP');
+//        $vendor->Phone = request('Phone');
+//        $vendor->ContactPersonName = request('ContactPersonName');
+//        $vendor->Password = request('Password');
+//        $vendor->ActiveStatus = true;
+//
+//        $vendor->save();
 
-        $vendor->VendorCode = request('VendorCode');
-        $vendor->VendorName = request('VendorName');
-        $vendor->Address = request('Address');
-        $vendor->City = request('City');
-        $vendor->State = request('State');
-        $vendor->ZIP = request('ZIP');
-        $vendor->Phone = request('Phone');
-        $vendor->ContactPersonName = request('ContactPersonName');
-        $vendor->Password = request('Password');
-        $vendor->ActiveStatus = true;
-
-        $vendor->save();
-
-        return redirect('/vendor');
+        return redirect('/vendor')->with('status', 'Vendor Added');
 
     }
 
@@ -64,10 +67,9 @@ class VendorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Vendor $vendor)
     {
-        $vendorData = Vendor::find($id);
-        return view('vendor.show')->with('vendorData', $vendorData);
+        return view('vendor.show', compact('vendor'));
     }
 
     /**

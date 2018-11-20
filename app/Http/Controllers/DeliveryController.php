@@ -69,7 +69,7 @@ class DeliveryController extends Controller
         //$orderDetailData = OrderDetail::all()
         //                       ->where('OrderId', '=', $id);
         $vendor = Vendor::find($orderData->VendorId);
-        $store = RetailStore::find($orderData->id);
+        $store = RetailStore::find($orderData->StoreId);
         //$items = InventoryItem::all();
         $orderDetailData = DB::table('order_details')
                     ->where('OrderId', '=', $id)

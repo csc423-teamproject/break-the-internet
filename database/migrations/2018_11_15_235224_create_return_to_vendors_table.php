@@ -16,7 +16,7 @@ class CreateReturnToVendorsTable extends Migration
         Schema::create('return_to_vendors', function (Blueprint $table) {
             $table->increments('ReturnToVendorId');
             $table->unsignedInteger('VendorId');
-            $table->foreign('VendorId')->references('VendorId')->on('vendors');
+            $table->foreign('VendorId')->references('id')->on('vendors');
             $table->unsignedInteger('StoreId');
             $table->foreign('StoreId')->references('id')->on('retail_stores');
             $table->unsignedInteger('DateTimeOfReturn')->nullable();

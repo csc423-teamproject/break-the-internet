@@ -1,11 +1,14 @@
 @extends('layouts.app')
 
 @section('title', 'Vendor Maintenance')
-
+@section('heading', 'Are you sure you want to remove this vendor?')
 @section('content')
-    <h1>Are you sure you want to delete this vendor?</h1>
+    <div class="alert alert-info">
+        <h4>Vendor Code: {{ $vendor->VendorCode }}</h4><br>
+        <h4>Vendor Name: {{ $vendor->VendorName }}</h4>
+    </div>
     <div class="form-inline">
-        <form method='POST' action="/vendor/{{ $vendorData->VendorId }}">
+        <form method='POST' action="/vendor/{{ $vendor->id }}">
             @method('DELETE')
             @csrf
             <button type="submit" class="btn btn-danger">Yes</button>

@@ -16,7 +16,7 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('OrderId');
             $table->unsignedInteger('VendorId');
-            $table->foreign('VendorId')->references('VendorId')->on('vendors');
+            $table->foreign('VendorId')->references('id')->on('vendors');
             $table->unsignedInteger('StoreId');
             $table->foreign('StoreId')->references('id')->on('retail_stores');
             $table->dateTime('DateTimeOfOrder')->nullable();

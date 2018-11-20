@@ -26,7 +26,7 @@ class ReturnController extends Controller
         $returnsData = ReturnToVendor::all()->where('Status', '=', 'Pending');
         $returnData = DB::Table('return_to_vendors')
         ->where('Status', '=', 'Pending')
-        ->join('vendors', 'vendors.VendorId', '=', 'return_to_vendors.VendorId')
+        ->join('vendors', 'vendors.id', '=', 'return_to_vendors.VendorId')
         ->join('retail_stores', 'retail_stores.id', '=', 'return_to_vendors.StoreId')
         ->select('ReturnToVendorId', 'retail_stores.StoreName', 'vendors.VendorName')
         ->get();

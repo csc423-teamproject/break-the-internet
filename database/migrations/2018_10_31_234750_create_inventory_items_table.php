@@ -24,7 +24,7 @@ class CreateInventoryItemsTable extends Migration
             $table->double('ItemRetail', 8, 2);
             $table->string('ImageFileName');
             $table->unsignedInteger('VendorId');
-            $table->foreign('VendorId')->references('VendorId')->on('vendors');
+            $table->foreign('VendorId')->references('id')->on('vendors');
             $table->enum('ActiveStatus', ['Enabled', 'Disabled']);
             $table->timestamps();
         });

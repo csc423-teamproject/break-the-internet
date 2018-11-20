@@ -14,7 +14,7 @@ class CreateVendorsTable extends Migration
     public function up()
     {
         Schema::create('vendors', function (Blueprint $table) {
-            $table->increments('VendorId');
+            $table->increments('id');
             $table->unsignedInteger('VendorCode');
             $table->unique('VendorCode');
             $table->string('VendorName');

@@ -1,10 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Store Location Maintenance')
-
 @section('heading', 'Retail Locations')
-
-
 @section('content')
     <div class="col-md-6">
         @if(count($stores->where("ActiveStatus", 'Enabled')) >= 1)

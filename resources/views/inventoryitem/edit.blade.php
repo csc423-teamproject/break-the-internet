@@ -68,10 +68,10 @@
             <select class="form-control" name="VendorId" id="VendorId">
                     @foreach($vendorData as $vendorData)
                         @if($vendorData->ActiveStatus == 'Enabled')
-                            @if($itemData->VendorId == $vendorData->VendorId)
-                                <option value={{$vendorData->VendorId}} SELECTED>{{$vendorData->VendorName}}</option>
+                            @if($itemData->VendorId == $vendorData->id)
+                                <option value={{$vendorData->id}} SELECTED>{{$vendorData->VendorName}}</option>
                             @else
-                                <option value={{$vendorData->VendorId}}>{{$vendorData->VendorName}}</option>
+                                <option value={{$vendorData->id}}>{{$vendorData->VendorName}}</option>
                             @endif
                         @endif
                     @endforeach

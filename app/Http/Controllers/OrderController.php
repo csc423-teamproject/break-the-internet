@@ -23,7 +23,7 @@ class OrderController extends Controller
         $ordersData = Order::all()->where("Status","=" ,'Pending');
         $orderData = DB::table('orders')
         ->where('Status', '=', 'Pending')
-        ->join('vendors', 'vendors.VendorId', '=', 'orders.VendorId')
+        ->join('vendors', 'vendors.id', '=', 'orders.VendorId')
         ->join('retail_stores', 'retail_stores.id', '=', 'orders.id')
         ->select('OrderId', 'retail_stores.StoreName', 'vendors.VendorName')
         ->get();
@@ -81,7 +81,7 @@ class OrderController extends Controller
         //$orderDetailData = OrderDetail::all()
         //                       ->where('OrderId', '=', $id);
         $vendor = Vendor::find($orderData->VendorId);
-        $store = RetailStore::find($orderData->id);
+        $store = RetailStore::find($orderData->StoreId);
         //$items = InventoryItem::all();
         $orderDetailData = DB::table('order_details')
                     ->where('OrderId', '=', $id)
