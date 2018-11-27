@@ -50,6 +50,14 @@
                 <span class="navtext" style="display: none;">Returns</span>
                 <i class="material-icons">assignment_returned</i>
             </a>
+            <a href="{{ url('purchases') }}">
+                <span class="navtext" style="display: none;">Purchases</span>
+                <i class="material-icons">shop_two</i>
+            </a>
+            <a href="{{ url('reports') }}">
+                <span class="navtext" style="display: none;">Reports</span>
+                <i class="material-icons">description</i>
+            </a>
             <a class="nav-link active" href="{{ url('/') }}">
                 <span class="navtext" style="display: none;">Exit</span>
                 <i class="material-icons">subdirectory_arrow_left</i>
