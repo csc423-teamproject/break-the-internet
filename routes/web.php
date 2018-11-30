@@ -35,3 +35,4 @@ Route::resource('category', 'CategoryController');
 Route::resource('order', 'OrderController');
 Route::resource('delivery', 'DeliveryController');
 Route::resource('return', 'ReturnController');
+Route::resource('purchase', 'PurchaseController');

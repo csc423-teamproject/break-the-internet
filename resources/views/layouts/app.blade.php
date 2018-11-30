@@ -50,7 +50,7 @@
                 <span class="navtext" style="display: none;">Returns</span>
                 <i class="material-icons">assignment_returned</i>
             </a>
-            <a href="{{ url('purchases') }}">
+            <a href="{{ url('purchase') }}">
                 <span class="navtext" style="display: none;">Purchases</span>
                 <i class="material-icons">shop_two</i>
             </a>
