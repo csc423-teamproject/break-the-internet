@@ -54,7 +54,7 @@
                 <span class="navtext" style="display: none;">Purchases</span>
                 <i class="material-icons">shop_two</i>
             </a>
-            <a href="{{ url('reports') }}">
+            <a href="{{ url('report') }}">
                 <span class="navtext" style="display: none;">Reports</span>
                 <i class="material-icons">description</i>
             </a>

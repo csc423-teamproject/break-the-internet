@@ -36,3 +36,5 @@ Route::resource('order', 'OrderController');
 Route::resource('delivery', 'DeliveryController');
 Route::resource('return', 'ReturnController');
 Route::resource('purchase', 'PurchaseController');
+Route::resource('report', 'ReportController');
+Route::resource('items', 'AllItemsReportController');
