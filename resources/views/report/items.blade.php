@@ -4,21 +4,24 @@
 
 @section('content')
     <h3>All Items</h3>
-    <input type="text" id="tableInput" onkeyup="tableSearchFunction()" placeholder="Search for items..">
+    <input type="text" id="tableInput" class="tableInput" onkeyup="tableSearchFunction()" placeholder="Search for items..">
+    <input type="text" id="tableStoreInput" class="tableInput" onkeyup="tableSearchFunction()" placeholder="Search on stores..">
+    <input type="text" id="tableQuantityInput" class="tableInput" onkeyup="tableSearchFunction()" placeholder="Quantity threshold..">
     <table id="searchTable">
             <tr>
-                    <th class="reportTableH">Id</th>
-                    <th class="reportTableH">Description</th>
-                    <th class="reportTableH">Store</th>
-                    <th class="reportTableH">Quantity In Stock</th>
+                    <th>Id</th>
+                    <th>Description</th>
+                    <th>Store</th>
+                    <th>Quantity In Stock</th>
                 </tr>
                 @foreach($data as $data)
                 <tr>
-                <td class="reportTableD">{{$data->ItemId}}</td>
-                <td class="reportTableD">{{$data->Description}}</td>
-                <td class="reportTableD">{{$data->StoreName}}</td>
-                <td class="reportTableD">{{$data->QuantityInStock}}</td>
+                <td>{{$data->id}}</td>
+                <td>{{$data->Description}}</td>
+                <td>{{$data->StoreName}}</td>
+                <td>{{$data->QuantityInStock}}</td>
                 </tr>
                 @endforeach
 </table>
+
 @endsection
