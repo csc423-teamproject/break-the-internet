@@ -148,6 +148,29 @@
     text-align: center;
 }
 
+#returnTable{
+    border-collapse: collapse; 
+    width: 100%; 
+    border: 1px solid #ddd; 
+    font-size: 18px; 
+}
+
+#returnTable th, #myTable td {
+    text-align: left; 
+    padding: 12px; 
+    text-align: center;
+}
+
+#returnTable tr {
+    border-bottom: 1px solid #ddd; 
+    text-align: center;
+}
+
+#returnTable tr.header, #myTable tr:hover {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
 
 @media screen and (max-height: 450px) {
 .sidenav {padding-top: 15px;}

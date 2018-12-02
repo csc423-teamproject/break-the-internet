@@ -19,7 +19,7 @@ class CreateReturnToVendorsTable extends Migration
             $table->foreign('VendorId')->references('id')->on('vendors');
             $table->unsignedInteger('StoreId');
             $table->foreign('StoreId')->references('id')->on('retail_stores');
-            $table->unsignedInteger('DateTimeOfReturn')->nullable();
+            $table->dateTime('DateTimeOfReturn')->nullable();
             $table->enum('Status', ['Pending', 'Complete']);
             $table->timestamps();
         });
