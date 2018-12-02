@@ -23,13 +23,6 @@
         <div id="id01" class="modal">
             <!-- Modal Content -->
             <form class="modal-content animate" action="{{ url('landing') }}">
-                <div class="imgcontainer">
-                    <span onclick="document.getElementById('id01').style.display='none'" 
-                        class="close" title="Close Modal">&times;</span>
-                    <!-- WE NEED TO CHANGE THIS IMAGE!! This was 'borrowed' as a placeholder... -->
-                    <img src="{{ asset('images/img_avatar2.png') }}" alt="Avatar" class="avatar">
-                </div>
-
                 <div class="container">
                     <label for="uname"><b>Username</b></label>
                     <input type="text" placeholder="Enter Username" name="uname" required>
@@ -42,9 +35,6 @@
 
                 <div class="container" style="background-color:#f1f1f1">
                 <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                <!-- Do we want to build a 'forgot password' utility?
-                <span class="psw">Forgot <a href="#">password?</a></span>
-                -->
                 </div>
             </form>
         </div> 

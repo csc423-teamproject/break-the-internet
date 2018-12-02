@@ -2,9 +2,6 @@
 <html lang="{{ app()->getLocale() }}">
     <head>
         
-        <script type="text/javascript" src="{{ URL::asset('js/layout.js') }}"></script>
-        <link rel="stylesheet" href="{{ URL::asset('css/layout.css') }}" />
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
@@ -17,6 +14,8 @@
         
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         
+        <script type="text/javascript" src="{{ URL::asset('js/layout.js') }}"></script>
+        <link rel="stylesheet" href="{{ URL::asset('css/layout.css') }}" />
         
         
         <meta charset="utf-8">
@@ -29,12 +28,13 @@
         <!-- Sidebar navigation-->
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">close</a>
-            <a href="{{ url('landing') }}" class="navlogo">                
-                <img id="navlogo" src="images/Nannos_N_Icon.png">
+            <a href="{{ url('landing') }}">                
+                <img class="navtext" style="display: none; padding-right: 40px;" src="{{ asset('images/nannos_menu_icon.png') }}">
+                <img id="navlogo" style="display: inline;" src="{{ asset('images/Nannos_N_Icon.png') }}">
             </a>
             <a href="{{ url('customer') }}">                
                 <span class="navtext" style="display: none;">Customers</span>
-                <i class="material-icons">group</i>
+                    <i class="material-icons">group</i>
             </a>
             <a href="{{ url('retailstores') }}">
                 <span class="navtext" style="display: none;">Store Locations</span>

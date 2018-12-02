@@ -111,7 +111,7 @@ function openNav() {
     for (i = 0; i < navEls.length; i++) {
         navEls[i].style.display = "inline";
     }
-    document.getElementById("navlogo").src = "images/nannos_menu_icon.png";
+    document.getElementById("navlogo").style.display = "none";
 }
 
 function closeNav() {
@@ -122,7 +122,7 @@ function closeNav() {
     for (i = 0; i < navEls.length; i++) {
         navEls[i].style.display = "none";
     }
-    document.getElementById("navlogo").src = "images/Nannos_N_Icon.png";
+    document.getElementById("navlogo").style.display = "inline";
 }
 
 
