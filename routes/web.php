@@ -38,3 +38,4 @@ Route::resource('return', 'ReturnController');
 Route::resource('purchase', 'PurchaseController');
 Route::resource('report', 'ReportController');
 Route::resource('items', 'AllItemsReportController');
+Route::resource('delivered', 'DeliveredReportController');

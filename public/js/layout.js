@@ -17,7 +17,8 @@ function searchFunction() {
 
 function tableSearchFunction() {
     
-    var input, inputStore, inputQuantity, filter, filterStore, filterQuantity,table, tr, td, i, txtValue, txtValueStore, txtValueQuantity;
+    var input, inputStore, inputQuantity, filter, filterStore, filterQuantity;
+    var table, tr, td, i, txtValue, txtValueStore, txtValueQuantity;
     input = document.getElementById("tableInput");
     inputStore = document.getElementById("tableStoreInput");
     inputQuantity = document.getElementById("tableQuantityInput");
@@ -27,7 +28,6 @@ function tableSearchFunction() {
     if(isNaN(filterQuantity)){filterQuantity = 0;}
     table = document.getElementById("searchTable");
     tr = table.getElementsByTagName("tr");
-  
     for (i = 0; i < tr.length; i++) {
       td = tr[i].getElementsByTagName("td")[1];
       tdStore = tr[i].getElementsByTagName("td")[2];
@@ -48,17 +48,39 @@ function tableSearchFunction() {
     }
   }
 
+function deliveredSearch(){
+  var start, end, table, tr, td, i, dateValue;
+  var vendor, store, tdStore, tdVendor;
+  start = document.getElementById("start");
+  start = new Date(start.value);
+  end = document.getElementById("end");
+  end = new Date(end.value);
+  vendor = document.getElementById("vendor");
+  vendor = vendor.value.toUpperCase();
+  store = document.getElementById("store");
+  store = store.value.toUpperCase();
+  table = document.getElementById("deliveredTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    tdStore = tr[i].getElementsByTagName("td")[1];
+    tdVendor = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      dateValue = td.textContent || td.innerText;
+      dateValue = new Date(dateValue.substring(0,10));
+      tdStore = tdStore.textContent || tdStore.innerText;
+      tdVendor = tdVendor.textContent || tdVendor.innerText;
+      if (start <= dateValue && end >= dateValue
+            && tdStore.toUpperCase().indexOf(store) > -1
+            && tdVendor.toUpperCase().indexOf(vendor) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
 
-//------------------------------------------------------------------
-
-//JQuery
-
-$(document).ready(function() {
-    $('.form-select2').select2();
-});
-
-
-//------------------------------------------------------------------
 
 // Open/Close Nav for the Navbar
 
@@ -81,3 +103,14 @@ function closeNav() {
         navEls[i].style.display = "none";
     }
 }
+
+
+
+//------------------------------------------------------------------
+
+//JQuery
+
+$(document).ready(function() {
+    $('.form-select2').select2();
+});
+

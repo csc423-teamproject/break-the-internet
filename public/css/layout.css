@@ -92,7 +92,7 @@
 }
 
 .tableInput {
-    background-image: url('/css/searchicon.png'); 
+    /*background-image: url('/public/images/searchicon.png'); */
     background-position: 10px 12px; 
     background-repeat: no-repeat;
     width: 100%; 
@@ -102,7 +102,7 @@
     margin-bottom: 12px; 
 }
 
-#searchTable {
+#searchTable{
     border-collapse: collapse; 
     width: 100%; 
     border: 1px solid #ddd; 
@@ -121,6 +121,29 @@
 }
 
 #searchTable tr.header, #myTable tr:hover {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+#deliveredTable{
+    border-collapse: collapse; 
+    width: 100%; 
+    border: 1px solid #ddd; 
+    font-size: 18px; 
+}
+
+#deliveredTable th, #myTable td {
+    text-align: left; 
+    padding: 12px; 
+    text-align: center;
+}
+
+#deliveredTable tr {
+    border-bottom: 1px solid #ddd; 
+    text-align: center;
+}
+
+#deliveredTable tr.header, #myTable tr:hover {
     background-color: #f1f1f1;
     text-align: center;
 }
