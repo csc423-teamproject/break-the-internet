@@ -111,6 +111,7 @@ function openNav() {
     for (i = 0; i < navEls.length; i++) {
         navEls[i].style.display = "inline";
     }
+    document.getElementById("navlogo").src = "images/nannos_menu_icon.png";
 }
 
 function closeNav() {
@@ -121,6 +122,7 @@ function closeNav() {
     for (i = 0; i < navEls.length; i++) {
         navEls[i].style.display = "none";
     }
+    document.getElementById("navlogo").src = "images/Nannos_N_Icon.png";
 }
 
 

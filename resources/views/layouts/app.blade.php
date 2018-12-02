@@ -2,6 +2,9 @@
 <html lang="{{ app()->getLocale() }}">
     <head>
         
+        <script type="text/javascript" src="{{ URL::asset('js/layout.js') }}"></script>
+        <link rel="stylesheet" href="{{ URL::asset('css/layout.css') }}" />
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
@@ -14,8 +17,7 @@
         
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         
-        <script type="text/javascript" src="{{ URL::asset('js/layout.js') }}"></script>
-        <link rel="stylesheet" href="{{ URL::asset('css/layout.css') }}" />
+        
         
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,8 +26,12 @@
         <title>@yield('title', 'Nannos Food')</title>
     </head>
     <body>
+        <!-- Sidebar navigation-->
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">close</a>
+            <a href="{{ url('landing') }}" class="navlogo">                
+                <img id="navlogo" src="images/Nannos_N_Icon.png">
+            </a>
             <a href="{{ url('customer') }}">                
                 <span class="navtext" style="display: none;">Customers</span>
                 <i class="material-icons">group</i>
@@ -63,10 +69,11 @@
                 <i class="material-icons">subdirectory_arrow_left</i>
             </a>
         </div>
-        <div id="main">
-            <img src="{{ asset('images/nannos_menu_icon.png') }}" class=.img-responsive 
-                onclick="openNav()" style="cursor:pointer">
+        <!-- End of Sidebar -->
 
+        <!-- Main body -->
+        <div id="main">
+            <i class="material-icons" onclick="openNav()" style="cursor:pointer">menu</i>
             <h2>@yield('heading')</h2>
 
             @if (session('status'))
@@ -91,5 +98,6 @@
                 </div>
             @endif
         </div>
+        <!-- ENd of Main -->
     </body>
 </html>

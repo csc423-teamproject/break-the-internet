@@ -85,6 +85,12 @@
     margin-left: 50px;
 }
 
+.sidenav .navlogo {
+    display: block;
+    margin-left: 50;
+}
+
+
 #main {
     transition: margin-left .5s;
     padding: 16px;
