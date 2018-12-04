@@ -18,7 +18,7 @@
                 @endforeach
             </ul>
         <hr />
-        <p><a href="./{{$returnData->ReturnToVendorId}}/edit" class="btn btn-md btn-primary" role="button">Add new item</a></p>
+        <p><a href="./{{$returnData->id}}/edit" class="btn btn-md btn-primary" role="button">Add new item</a></p>
         <form method='POST' action="/return/{{ $returnData->id }}">
             @method('DELETE')
             @csrf

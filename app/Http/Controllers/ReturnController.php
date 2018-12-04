@@ -143,7 +143,7 @@ class ReturnController extends Controller
     public function destroy($id)
     {
         $return = ReturnToVendor::find($id);
-        $returnDetails = ReturnToVendorDetail::all()->where('ReturnToVendorId', '=', $return->ReturnToVendorId);
+        $returnDetails = ReturnToVendorDetail::all()->where('ReturnToVendorId', '=', $return->id);
 
         foreach($returnDetails as $returnDetails){
             $inventory = Inventory::all()
@@ -158,6 +158,11 @@ class ReturnController extends Controller
         $return->Status = 'Complete';
         $return->save();
 
+        //Quick fix
+        $return = ReturnToVendor::find($id);
+        $return->DateTimeOfReturn = $return->updated_at;
+        $return->save();
+        
         return redirect('return');
     }
 }

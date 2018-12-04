@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReturnToVendorsTable extends Migration
+class CreatePurchasesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,16 @@ class CreateReturnToVendorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('return_to_vendors', function (Blueprint $table) {
+        Schema::create('purchases', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('VendorId');
-            $table->foreign('VendorId')->references('id')->on('vendors');
+            $table->unsignedInteger('CustomerId');
+            $table->foreign('CustomerId')->references('id')->on('customers');
+            $table->unsignedInteger('ItemId');
+            $table->foreign('ItemId')->references('id')->on('inventory_items');
             $table->unsignedInteger('StoreId');
             $table->foreign('StoreId')->references('id')->on('retail_stores');
-            $table->dateTime('DateTimeOfReturn')->nullable();
-            $table->enum('Status', ['Pending', 'Complete']);
+            $table->unsignedInteger('QuantityPurchased');
+            $table->datetime('DateTimeOfPurchase')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +34,6 @@ class CreateReturnToVendorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('return_to_vendors');
+        Schema::dropIfExists('purchases');
     }
 }

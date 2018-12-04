@@ -125,6 +125,11 @@ class DeliveryController extends Controller
         $order->Status = 'Delivered';
         $order->save();
 
+        //Quick fix
+        $order = Order::find($id);
+        $order->DateTimeOfFulfilment = $order->updated_at;
+        $order->save();
+
         return redirect('order');
     }
 

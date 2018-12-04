@@ -91,7 +91,89 @@
     margin-left: 50px;
 }
 
+.tableInput {
+    /*background-image: url('/public/images/searchicon.png'); */
+    background-position: 10px 12px; 
+    background-repeat: no-repeat;
+    width: 100%; 
+    font-size: 16px; 
+    padding: 12px 20px 12px 40px; 
+    border: 1px solid #ddd; 
+    margin-bottom: 12px; 
+}
+
+#searchTable{
+    border-collapse: collapse; 
+    width: 100%; 
+    border: 1px solid #ddd; 
+    font-size: 18px; 
+}
+
+#searchTable th, #myTable td {
+    text-align: left; 
+    padding: 12px; 
+    text-align: center;
+}
+
+#searchTable tr {
+    border-bottom: 1px solid #ddd; 
+    text-align: center;
+}
+
+#searchTable tr.header, #myTable tr:hover {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+#deliveredTable{
+    border-collapse: collapse; 
+    width: 100%; 
+    border: 1px solid #ddd; 
+    font-size: 18px; 
+}
+
+#deliveredTable th, #myTable td {
+    text-align: left; 
+    padding: 12px; 
+    text-align: center;
+}
+
+#deliveredTable tr {
+    border-bottom: 1px solid #ddd; 
+    text-align: center;
+}
+
+#deliveredTable tr.header, #myTable tr:hover {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+#returnTable{
+    border-collapse: collapse; 
+    width: 100%; 
+    border: 1px solid #ddd; 
+    font-size: 18px; 
+}
+
+#returnTable th, #myTable td {
+    text-align: left; 
+    padding: 12px; 
+    text-align: center;
+}
+
+#returnTable tr {
+    border-bottom: 1px solid #ddd; 
+    text-align: center;
+}
+
+#returnTable tr.header, #myTable tr:hover {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+
 @media screen and (max-height: 450px) {
 .sidenav {padding-top: 15px;}
 .sidenav a {font-size: 18px;}
 }
+

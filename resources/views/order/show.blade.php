@@ -19,6 +19,7 @@
             </ul>
         </div>
         <hr>
+        @if($orderData->Status == 'Pending')
         <div class="form-group">
             <p><a href="./{{$orderData->id}}/edit" class="btn btn-md btn-primary" role="button">Add new item</a></p>
             <form method="post" action="/delivery/{{ $orderData->id }}">
@@ -28,8 +29,10 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Order Delivered</button>
             </form>
-
         </div>
+        @else
+            <p>Order has been delivered</p>
+        @endif
     </div>
 
 @endsection
