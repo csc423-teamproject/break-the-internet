@@ -111,9 +111,10 @@ function openNav() {
     for (i = 0; i < navEls.length; i++) {
         navEls[i].style.display = "inline";
     }
-    document.getElementById("navlogo").style.display = "none";
-}
-
+    document.getElementById("navlogo").style.display = "none"
+    document.getElementById("burger").setAttribute("onclick", "closeNav()");
+  }
+  
 function closeNav() {
     document.getElementById("mySidenav").style.width = "50px";
     document.getElementById("main").style.marginLeft= "50px";
@@ -123,14 +124,13 @@ function closeNav() {
         navEls[i].style.display = "none";
     }
     document.getElementById("navlogo").style.display = "inline";
+    document.getElementById("burger").setAttribute("onclick", "openNav()");
 }
 
 // Tooltip jQuery helper
 $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();   
 });
-
-
 
 //------------------------------------------------------------------
 

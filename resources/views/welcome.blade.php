@@ -7,6 +7,7 @@
         <title>Nanno's Foods - Welcome!</title>
 
         <script type="text/javascript" src="{{ URL::asset('js/welcome.js') }}"></script>
+        <!-- This link gives us 4 fonts, so we can choose which looks the best -->
         <link href="https://fonts.googleapis.com/css?family=Baloo|Bevan|Coustard:900|Lemon" rel="stylesheet"> 
         <link rel="stylesheet" href="{{ URL::asset('css/welcome.css') }}" />
 

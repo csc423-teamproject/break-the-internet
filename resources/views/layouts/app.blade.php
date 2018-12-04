@@ -43,7 +43,7 @@
                     <i class="material-icons">group</i>
             </a>
             <a href="{{ url('retailstores') }}" data-toggle="tool-tip" title="Store Locations"> 
-                <span class="navtext" style="display: none;">Store Locations</span>
+                <span class="navtext" style="display: none;">Store<br/>Locations</span>
                 <i class="material-icons">store</i>
             </a>
             <a href="{{ url('item') }}" data-toggle="tool-tip" title="Inventory">
@@ -79,7 +79,8 @@
 
         <!-- Main body -->
         <div id="main">
-            <i class="material-icons" onclick="openNav()" style="cursor:pointer">menu</i>
+            <i class="material-icons" onclick="openNav()" style="cursor:pointer" 
+                id="burger" data-toggle="tool-tip" title="Open/Close Menu">menu</i>
             <h2>@yield('heading')</h2>
 
             @if (session('status'))
