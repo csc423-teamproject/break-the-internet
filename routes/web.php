@@ -40,3 +40,4 @@ Route::resource('report', 'ReportController');
 Route::resource('items', 'AllItemsReportController');
 Route::resource('delivered', 'DeliveredReportController');
 Route::resource('returned', 'ReturnedReportContoller');
+Route::resource('portal', 'VendorPortalController');
