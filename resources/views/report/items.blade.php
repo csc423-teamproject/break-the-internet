@@ -10,7 +10,7 @@
     <table id="searchTable">
             <tr>
                     <th>Id</th>
-                    <th>Description</th>
+                    <th>Item</th>
                     <th>Store</th>
                     <th>Quantity In Stock</th>
                 </tr>
