@@ -33,9 +33,14 @@
     <body>
         <!-- Sidebar navigation-->
         <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">close</a>
+
+            <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">close</a> -->
+
+            <a class="material-icons" onclick="openNav()" style="cursor:pointer" 
+                id="burger" data-toggle="tool-tip" title="Open/Close Menu">menu</a>
+
             <a href="{{ url('landing') }}" data-toggle="tool-tip" title="Home">                
-                <img class="navtext" style="display: none; padding-right: 40px;" src="{{ asset('images/nannos_menu_icon.png') }}">
+                <img class="navtext" style="display: none; padding-right: 30px;" src="{{ asset('images/nannos_menu_icon.png') }}">
                 <img id="navlogo" style="display: inline;" src="{{ asset('images/Nannos_N_Icon.png') }}">
             </a>
             <a href="{{ url('customer') }}" data-toggle="tool-tip" title="Customers">                
@@ -43,7 +48,7 @@
                     <i class="material-icons">group</i>
             </a>
             <a href="{{ url('retailstores') }}" data-toggle="tool-tip" title="Store Locations"> 
-                <span class="navtext" style="display: none;">Store<br/>Locations</span>
+                <span class="navtext" style="display: none;">Store Locations</span>
                 <i class="material-icons">store</i>
             </a>
             <a href="{{ url('item') }}" data-toggle="tool-tip" title="Inventory">
@@ -79,8 +84,7 @@
 
         <!-- Main body -->
         <div id="main">
-            <i class="material-icons" onclick="openNav()" style="cursor:pointer" 
-                id="burger" data-toggle="tool-tip" title="Open/Close Menu">menu</i>
+            
             <h2>@yield('heading')</h2>
 
             @if (session('status'))

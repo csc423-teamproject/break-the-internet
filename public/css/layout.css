@@ -56,13 +56,13 @@
     background-color: #111;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 60px;
+    padding-top: 25px;
 }
 
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 17px;
     color: #818181;
     display: block;
     transition: 0.3s;  
@@ -83,6 +83,13 @@
     left: 25px;
     font-size: 20px;
     margin-left: 50px;
+}
+
+#burger {
+    color: #f1f1f1;
+    top: 0;
+    float: right;
+
 }
 
 #main {
