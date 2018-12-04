@@ -104,8 +104,8 @@ function returnSearch() {
 // Open/Close Nav for the Navbar
 
 function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "300px";
+    document.getElementById("mySidenav").style.width = "200px";
+    document.getElementById("main").style.marginLeft = "250px";
     document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
     var navEls = document.getElementsByClassName("navtext");
     for (i = 0; i < navEls.length; i++) {
