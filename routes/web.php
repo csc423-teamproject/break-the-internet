@@ -41,3 +41,6 @@ Route::resource('items', 'AllItemsReportController');
 Route::resource('delivered', 'DeliveredReportController');
 Route::resource('returned', 'ReturnedReportContoller');
 Route::resource('portal', 'VendorPortalController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

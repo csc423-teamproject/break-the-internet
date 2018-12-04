@@ -10,7 +10,7 @@
         <h4>Phone: {{ $customer->Phone }}</h4>
     </div>
     <div class="form-inline">
-        <form method='POST' action="/customer/{{ $customer->CustomerId }}">
+        <form method='POST' action="/customer/{{ $customer->id }}">
             @method('DELETE')
             @csrf
             <button type="submit" class="btn btn-danger">Yes</button>
