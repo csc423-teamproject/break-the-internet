@@ -125,6 +125,11 @@ function closeNav() {
     document.getElementById("navlogo").style.display = "inline";
 }
 
+// Tooltip jQuery helper
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
+
 
 
 //------------------------------------------------------------------
