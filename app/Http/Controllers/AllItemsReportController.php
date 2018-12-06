@@ -23,6 +23,7 @@ class AllItemsReportController extends Controller
             ->join('inventory_items', 'inventory_items.id', '=', 'inventories.ItemId')
             ->join('retail_stores', 'retail_stores.id', '=', 'inventories.StoreId')
             ->select('inventory_items.Description', 'retail_stores.StoreName', 'inventories.id', DB::raw('sum(QuantityInStock) as QuantityInStock'))
+            ->groupBy('retail_stores.StoreName')
             ->groupBy('inventories.ItemId')
             ->orderBy('inventories.id', 'asc')
             ->get();
