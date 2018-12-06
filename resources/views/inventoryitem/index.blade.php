@@ -11,7 +11,7 @@
                     @if($item->ActiveStatus == 'Enabled')
                         <li>
                             <a href="./item/{{$item->id}}/edit">
-                                <img src="{{ asset('storage/items/'. $item->ImageFileName) }}" width="50px" height="50px"/>
+                                <img src="{{ asset('storage/public/items/'. $item->ImageFileName) }}" width="50px" height="50px"/>
                                 {{$item->Description}}
                             </a>
                             {{--{{ storage_path('app/public/items/' . $item->ImageFileName) }}--}}
