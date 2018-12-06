@@ -129,7 +129,7 @@ class ReturnController extends Controller
 
 //        dd($return);
         if ($return != null) {
-            $return->QuantityReturned = $returnInfo['Quantity'] + $return->QuantityReturned;
+            $return->QuantityReturned = $return->QuantityReturned;
             $return->save();
             $status = 'Item Updated';
         } else {
