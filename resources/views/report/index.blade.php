@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
 @section('title', 'Report')
-
+@section('heading', 'Reports')
 @section('content')
-    <h3>Reports</h3>
     <div class="card-deck">
         <div class="card">
             <!--<img class="card-img-top" src="{{ asset('images/shelves.png') }}">

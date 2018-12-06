@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
 @section('title', 'Report')
-
+@section('heading', 'All Items')
 @section('content')
-    <h3>All Items</h3>
     <input type="text" id="tableInput" class="tableInput" onkeyup="tableSearchFunction()" placeholder="Search for items..">
     <input type="text" id="tableStoreInput" class="tableInput" onkeyup="tableSearchFunction()" placeholder="Search on stores..">
     <input type="text" id="tableQuantityInput" class="tableInput" onkeyup="tableSearchFunction()" placeholder="Quantity threshold..">
