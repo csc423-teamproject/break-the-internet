@@ -9,7 +9,7 @@
         <div class="card shadow-sm p-3 m-2"> <!-- Adjust this -->
             <div class="form-group">
                 <label>Current Image:</label><br>
-                <img class="img-thumbnail" src="{{ asset('storage/items/'. $item->ImageFileName) }}" width="200px" height="200px"/>
+                <img class="img-thumbnail" src="{{ asset('storage/public/items/'. $item->ImageFileName) }}" width="200px" height="200px"/>
 
             </div>
             <div class="form-group">
@@ -84,7 +84,7 @@
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Modify Item</button>
                 <hr />
-                <a href="./../../item/{{$item->id}}/" class="btn btn-md btn-danger" role="button">Delete this Item</a>
+                <a href="./item/{{$item->id}}/" class="btn btn-md btn-danger" role="button">Delete this Item</a>
             </div>
         </div>
     </form>
