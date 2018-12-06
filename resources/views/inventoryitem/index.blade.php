@@ -9,7 +9,14 @@
             <ul id="searchUL">
                 @foreach($items as $item)
                     @if($item->ActiveStatus == 'Enabled')
-                        <li><a href="./item/{{$item->id}}/edit">{{$item->Description}}</a></li>
+                        <li>
+                            <a href="./item/{{$item->id}}/edit">
+                                <img src="{{ asset('storage/items/'. $item->ImageFileName) }}" width="50px" height="50px"/>
+                                {{$item->Description}}
+                            </a>
+                            {{--{{ storage_path('app/public/items/' . $item->ImageFileName) }}--}}
+
+                        </li>
                     @endif
                 @endforeach
             </ul>

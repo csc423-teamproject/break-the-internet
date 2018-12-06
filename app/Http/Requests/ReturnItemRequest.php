@@ -26,22 +26,24 @@ class ReturnItemRequest extends FormRequest
      */
     public function rules()
     {
-        $item = Inventory::where('ItemId', '=', $this->ItemId)->first();
-        $return = ReturnToVendorDetail::where('ItemId', '=', $this->ItemId)->first();
+        dd($this->StoreId);
+        $item = Inventory::where('ItemId', '=', $this->ItemId, 'and')->where('StoreId', '=', $this->StoreId)->first();
+        $return = ReturnToVendorDetail::where('ItemId', '=', $this->ItemId, 'and')->where('ReturnToVendorId', '=', $this->VendorId)->first();
         if ($return != null) {
             $returned = $return->QuantityReturned;
 //            dd($returned);
         } else {
             $returned = 0;
         }
+        dd($item);
         if ($item != null) {
             $qis = $item->QuantityInStock;
-//            dd($qis);
+            dd($qis);
             $quantity = $qis - $returned;
         } else {
             $quantity = 0;
         }
-//        dd($quantity);
+        dd($quantity);
         return [
             'ItemId' => 'required',
             'Quantity' => 'required|lte:'.$quantity

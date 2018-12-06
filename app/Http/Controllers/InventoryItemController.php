@@ -48,8 +48,10 @@ class InventoryItemController extends Controller
      */
     public function store(ItemStoreRequest $request)
     {
-        InventoryItem::create($request->validated());
-        
+        $item = InventoryItem::create($request->validated());
+        $request->ImageFileName->storeAs('public/items', $request->ImageFileName->getClientOriginalName());
+        $item->ImageFileName = $request->ImageFileName->getClientOriginalName();
+        $item->save();
 //        $item = new InventoryItem;
 //        $item->Description = $request->input('Description');
 //        $item->Size = $request->input('Size');
@@ -107,6 +109,9 @@ class InventoryItemController extends Controller
     public function update(ItemStoreRequest $request, InventoryItem $item)
     {
         $item->update($request->validated());
+        $request->ImageFileName->storeAs('public/items', $request->ImageFileName->getClientOriginalName());
+        $item->ImageFileName = $request->ImageFileName->getClientOriginalName();
+        $item->save();
 //        $item = InventoryItem::find($id);
 //        $item->Description = $request->input('Description');
 //        $item->Size = $request->input('Size');

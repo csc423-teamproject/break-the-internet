@@ -3,7 +3,7 @@
 @section('title', 'Item Maintenance')
 @section('heading', 'Modify Item')
 @section('content')
-    <form method="post" action="/item/{{ $item->id }}">
+    <form method="post" action="/item/{{ $item->id }}" enctype="multipart/form-data">
         @method('PATCH')
         @csrf
         <div class="card shadow-sm p-3 m-2"> <!-- Adjust this -->
@@ -53,7 +53,9 @@
             </div>
             <div class="form-group">
                     <label>Image File Name</Label>
-                <input type="text" class="form-control" name="ImageFileName" id="ImageFileName" value="{{ $item->ImageFileName }}">
+                <input type="file" class="form-control-file {{ $errors->has('ImageFileName') ? 'border-danger' : ''}}" name="ImageFileName" id="ImageFileName" value = "{{ old('ImageFileName', $item->ImageFileName) }}">
+
+                {{--<input type="text" class="form-control" name="ImageFileName" id="ImageFileName" value="{{ $item->ImageFileName }}">--}}
             </div>
             <div class="form-group">
             <label>Vendor</Label>

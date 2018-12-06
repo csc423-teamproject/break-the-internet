@@ -3,10 +3,39 @@
 @section('title', 'Item Maintenance')
 @section('heading', 'Add Item')
 @section('content')
+    <script>
+        // document.getElementById("ImageFileName").onchange = function () {
+        //     var reader = new FileReader();
+        //
+        //     reader.onload = function (e) {
+        //         // get loaded data and render thumbnail.
+        //         document.getElementById("image").src = e.target.result;
+        //     };
+        //
+        //     // read the image file as a data URL.
+        //     reader.readAsDataURL(this.files[0]);
+        // };
+
+        function handleFileSelect(evt) {
+            var files = evt.target.files; // FileList object
+
+            // files is a FileList of File objects. List some properties.
+            var output = [];
+            for (var i = 0, f; f = files[i]; i++) {
+                output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                    f.size, ' bytes, last modified: ',
+                    f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                    '</li>');
+            }
+            document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+        }
+
+        document.getElementById('files').addEventListener('change', handleFileSelect, false);
+    </script>
     @if(count($vendors->where("ActiveStatus", 'Enabled')) == 0)
         <p>You must have vendors to enter an item</p>
     @else
-    <form action="/item" method="post">
+    <form action="/item" method="post" enctype="multipart/form-data">
         @csrf
         <div class="card shadow-sm p-3 m-2"> <!-- Adjust this -->
 
@@ -63,8 +92,14 @@
                 </div>
             </div>
             <div class="form-group">
-                    <label>Image File Name</Label>
-                <input type="text" class="form-control {{ $errors->has('ImageFileName') ? 'border-danger' : ''}}" name="ImageFileName" id="ImageFileName" placeholder="Image File Name" value = "{{ old('ImageFileName') }}">
+                <label>Image File Name</Label>
+                <style>
+
+                </style>
+                <input type="file" class="form-control-file {{ $errors->has('ImageFileName') ? 'border-danger' : ''}}" name="ImageFileName" id="ImageFileName" value = "{{ old('ImageFileName') }}">
+{{--                <input type="file" class="form-control {{ $errors->has('ImageFileName') ? 'border-danger' : ''}}" name="ImageFileName" id="ImageFileName" placeholder="Image File Name" value = "{{ old('ImageFileName') }}">--}}
+                {{--<img id="image"/>--}}
+                {{--<output id="list"></output>--}}
             </div>
             <div class="form-group">
             <label>Vendor</Label>

@@ -31,7 +31,7 @@ class ItemStoreRequest extends FormRequest
             'Category' => 'required|string:max:100|exists:categories,id',
             'ItemCost' => 'required|numeric|min:0.01',
             'ItemRetail' => 'required|numeric|min:0.01',
-            'ImageFileName' => 'required|string',
+            'ImageFileName' => 'required',
             'VendorId' => 'required|exists:vendors,id'
 
         ];
