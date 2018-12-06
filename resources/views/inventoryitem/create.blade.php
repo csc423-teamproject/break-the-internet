@@ -45,13 +45,22 @@
                         <small><a href="/category/create/">Add category</a></small>
             </div>
             <div class="form-group">
-                    <label>Item Cost</Label>
-                <input type="text" class="form-control {{ $errors->has('ItemCost') ? 'border-danger' : ''}}" name="ItemCost" id="ItemCost" placeholder="Item Cost" value = "{{ old('ItemCost') }}">
-
+                <label>Item Cost</Label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">$</span>
+                    </div>
+                    <input type="text" class="form-control {{ $errors->has('ItemCost') ? 'border-danger' : ''}}" name="ItemCost" id="ItemCost" placeholder="Item Cost" value = "{{ old('ItemCost') }}">
+                </div>
             </div>
             <div class="form-group">
-                    <label>Item Retail</Label>
-                <input type="text" class="form-control {{ $errors->has('ItemRetail') ? 'border-danger' : ''}}" name="ItemRetail" id="ItemRetail" placeholder="Item Retail" value = "{{ old('ItemRetail') }}">
+                <label>Item Retail</Label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">$</span>
+                    </div>
+                    <input type="text" class="form-control {{ $errors->has('ItemRetail') ? 'border-danger' : ''}}" name="ItemRetail" id="ItemRetail" placeholder="Item Retail" value = "{{ old('ItemRetail') }}">
+                </div>
             </div>
             <div class="form-group">
                     <label>Image File Name</Label>

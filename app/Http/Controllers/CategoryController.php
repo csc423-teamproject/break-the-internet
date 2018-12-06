@@ -42,7 +42,8 @@ class CategoryController extends Controller
         $category->ActiveStatus = 'Enabled';
         $category->save();
 
-        return redirect('item')->with('success', 'Category Added');
+//        return redirect('item')->with('success', 'Category Added');
+        return redirect('item/create')->with('success', 'Category Added');
     }
 
     /**

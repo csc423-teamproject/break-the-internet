@@ -42,7 +42,7 @@ class DivisionController extends Controller
         $division->ActiveStatus = 'Enabled';
         $division->save();
 
-        return redirect('item')->with('success', 'Division Added');
+        return redirect('item/create')->with('success', 'Division Added');
 
 
     }
