@@ -84,7 +84,7 @@
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Modify Item</button>
                 <hr />
-                <a href="./item/{{$item->id}}/" class="btn btn-md btn-danger" role="button">Delete this Item</a>
+                <a href="/item/{{$item->id}}/" class="btn btn-md btn-danger" role="button">Delete this Item</a>
             </div>
         </div>
     </form>
