@@ -7,7 +7,11 @@
         @method('PATCH')
         @csrf
         <div class="card shadow-sm p-3 m-2"> <!-- Adjust this -->
+            <div class="form-group">
+                <label>Current Image:</label><br>
+                <img class="img-thumbnail" src="{{ asset('storage/items/'. $item->ImageFileName) }}" width="200px" height="200px"/>
 
+            </div>
             <div class="form-group">
                 <label>Description</Label>
                 <input type="text" class="form-control" name="Description" id="Description" value="{{ $item->Description }}">
@@ -44,16 +48,26 @@
             </div>
             <div class="form-group">
                     <label>Item Cost</Label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">$</span>
+                    </div>
                 <input type="text" class="form-control" name="ItemCost" id="ItemCost" value="{{ $item->ItemCost }}">
+                </div>
 
             </div>
             <div class="form-group">
                     <label>Item Retail</Label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">$</span>
+                    </div>
                 <input type="text" class="form-control" name="ItemRetail" id="ItemRetail" value="{{ $item->ItemRetail }}">
+                </div>
             </div>
             <div class="form-group">
                     <label>Image File Name</Label>
-                <input type="file" class="form-control-file {{ $errors->has('ImageFileName') ? 'border-danger' : ''}}" name="ImageFileName" id="ImageFileName" value = "{{ old('ImageFileName', $item->ImageFileName) }}">
+                <input type="file" class="form-control-file {{ $errors->has('ImageFileName') ? 'border-danger' : ''}}" name="ImageFileName" id="ImageFileName" value = "{{ $item->ImageFileName }}">
 
                 {{--<input type="text" class="form-control" name="ImageFileName" id="ImageFileName" value="{{ $item->ImageFileName }}">--}}
             </div>
