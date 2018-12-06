@@ -7,6 +7,7 @@
     <form action="/purchase/{{ $store }}" method="post">
         @method('PATCH')
         @csrf
+            <input type="hidden" name="StoreId" id="StoreId" value="{{ $store }}">
         <div>
             <label>Customer Id</label>
             <input type="text" class="form-control" name="CustomerId" id="CustomerId" placeholder="">

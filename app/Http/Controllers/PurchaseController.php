@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PurchaseItemRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use DB;
@@ -86,17 +87,20 @@ class PurchaseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PurchaseItemRequest $request, $id)
     {
-        $purchase = new Purchase;
-        $purchase->CustomerId = $request->input('CustomerId');
-        $purchase->ItemId = $request->input('ItemId');
-        $purchase->StoreId = $id;
-        $purchase->QuantityPurchased = $request->input('QuantityPurchased');
-        $purchase->DateTimeOfPurchase = null;
+        $purchase = Purchase::create($request->validated());
+//        $purchase->StoreId = $id;
+//        $purchase->save();
+//        $purchase = new Purchase;
+//        $purchase->CustomerId = $request->input('CustomerId');
+//        $purchase->ItemId = $request->input('ItemId');
+//        $purchase->StoreId = $id;
+//        $purchase->QuantityPurchased = $request->input('QuantityPurchased');
+//        $purchase->DateTimeOfPurchase = null;
         
         
-        $purchase->save();
+//        $purchase->save();
 
         $item = Inventory::all()
         ->where('ItemId', '=', $request->input('ItemId'))

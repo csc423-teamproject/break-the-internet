@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Inventory;
 use Illuminate\Foundation\Http\FormRequest;
 
 class PurchaseItemRequest extends FormRequest
@@ -23,12 +24,18 @@ class PurchaseItemRequest extends FormRequest
      */
     public function rules()
     {
-        $item = Inventory::where('ItemId', '=', $this->ItemId)->first();
-
+        $item = Inventory::where('ItemId', '=', $this->ItemId, 'and')->where('StoreId','=',$this->StoreId)->first();
+//        dd($item);
+        if ($item != null) {
+            $qis = $item->QuantityInStock;
+        } else {
+            $qis = 0;
+        }
         return [
             'CustomerId' => 'required|exists:customers,id',
             'ItemId' => 'required',
-            'QuantityPurchased' => 'required|'
+            'StoreId' => 'required',
+            'QuantityPurchased' => 'required|lte:'.$qis
             //
         ];
     }
