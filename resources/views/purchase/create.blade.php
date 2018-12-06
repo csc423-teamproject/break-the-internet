@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
 @section('title', 'Purchase Maintenance')
-
+@section('heading', 'Add Purchase')
 @section('content')
-    <h1>Add Purchase</h1>
     <form action="/purchase" method="post">
         @csrf
         <div>

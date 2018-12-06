@@ -2,8 +2,9 @@
 
 @section('title', 'Return Maintenance')
 
+@section('heading', 'Add Return')
+
 @section('content')
-    <h1>Add Return</h1>
     <form action="/return" method="post">
         @csrf
         <div>

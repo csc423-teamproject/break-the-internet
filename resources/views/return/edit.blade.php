@@ -1,25 +1,28 @@
 @extends('layouts.app')
 
 @section('title', 'Return Maintenance')
+@section('heading', 'Add Items to Return')
 
 @section('content')
-
-<h2>Add item to return</h2>
     <form method="post" action="/return/{{ $returnData->id }}">
         @method('PATCH')
         @csrf
-        <div class="form-group">
-                <label>Item</Label>
-                    <select class="form-control" name="ItemId" id="ItemId">
-                        @foreach($items as $items)
-                                <option value={{$items->id}}>{{$items->Description}}</option>
+        <div class="row">
+            <label class="col">Item</Label>
+            <label class="col">Quantity</label>
+
+        </div>
+        <div class="row">
+            <select class="col" name="ItemId" id="ItemId">
+                        @foreach($items as $item)
+                                <option value={{$item->id}}>{{$item->Description}}</option>
                         @endforeach
                     </select>
-                <label>Quantity</label>
-                <input type="text" class="form-control" name="Quantity" id="Quantity" placeholder="Quantity">
+                <input type="text" class="col" name="Quantity" id="Quantity" placeholder="Quantity">
+            <button type="submit" class="col btn btn-primary">Add Item</button>
+
         </div>
         <br />
-        <button type="submit" class="btn btn-primary">Add Item</button>
     </form>
 
 

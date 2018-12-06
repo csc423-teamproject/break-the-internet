@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
 @section('title', 'Return Maintenance')
-
+@section('heading', 'Returns')
 @section('content')
-<h2>Returns</h2>
 <div class="col-md-6">
     @if(count($returnsData) >= 1)
         <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search for orders...">

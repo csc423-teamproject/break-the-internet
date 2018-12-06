@@ -31,8 +31,8 @@
     <!-- Sidebar  -->
     <nav id="sidebar">
         <div class="sidebar-header">
-            {{--<h3>Bootstrap Sidebar</h3>--}}
-            {{--<strong>BS</strong>--}}
+            <h3>Nanno's Foods</h3>
+            <strong>NF</strong>
 
         </div>
 
