@@ -18,7 +18,7 @@
             </div>
             <div class="form-group">
                     <label>Size</Label>
-                <input type="text" class="form-control" name="Size" id="Size" value="{{ $item->Description }}">
+                <input type="text" class="form-control" name="Size" id="Size" value="{{ $item->Size }}">
             </div>
             <div class="form-group">
                     <label>Division</Label>
