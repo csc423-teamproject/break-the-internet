@@ -26,7 +26,7 @@ class ReturnItemRequest extends FormRequest
      */
     public function rules()
     {
-        dd($this->StoreId);
+//        dd($this->StoreId);
         $item = Inventory::where('ItemId', '=', $this->ItemId)->first();
         $return = ReturnToVendorDetail::where('ItemId', '=', $this->ItemId)->first();
         if ($return != null) {
