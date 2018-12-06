@@ -35,7 +35,7 @@ class ReturnItemRequest extends FormRequest
         } else {
             $returned = 0;
         }
-        dd($item);
+//        dd($item);
         if ($item != null) {
             $qis = $item->QuantityInStock;
 //            dd($qis);
