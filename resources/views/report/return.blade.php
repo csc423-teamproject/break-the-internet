@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Report')
-
+@section('heading' ,'Returned Items')
 @section('content')
 
 
