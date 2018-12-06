@@ -8,8 +8,8 @@
         @method('PATCH')
         @csrf
         <div class="row">
-            <label class="col">Item</Label>
-            <label class="col">Quantity</label>
+            <label for="ItemId" class="col">Item</Label>
+            <label for="Quantity" class="col">Quantity</label>
 
         </div>
         <div class="row">
@@ -18,7 +18,7 @@
                                 <option value={{$item->id}}>{{$item->Description}}</option>
                         @endforeach
                     </select>
-                <input type="text" class="col" name="Quantity" id="Quantity" placeholder="Quantity">
+                <input type="text" class="col" name="Quantity" id="Quantity" placeholder="Quantity" value="{{ old('Quanitity', $returnData->QuantityReturned) }}">
             <button type="submit" class="col btn btn-primary">Add Item</button>
 
         </div>

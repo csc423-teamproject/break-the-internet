@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ReturnItemRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use DB;
@@ -121,17 +122,29 @@ class ReturnController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ReturnItemRequest $request, $id)
     {
-        $returnDetail = new ReturnToVendorDetail;
-        $returnDetail->ReturnToVendorId = $id;
-        $returnDetail->ItemId = $request->input('ItemId');
-        $returnDetail->QuantityReturned = $request->input('Quantity');
-        $returnDetail->save();
+        $returnInfo = $request->validated();
+        $return = ReturnToVendorDetail::where('ItemId', '=', $returnInfo['ItemId'])->first();
+
+//        dd($return);
+        if ($return != null) {
+            $return->QuantityReturned = $returnInfo['Quantity'] + $return->QuantityReturned;
+            $return->save();
+            $status = 'Item Updated';
+        } else {
+            $returnDetail = new ReturnToVendorDetail;
+            $returnDetail->ReturnToVendorId = $id;
+            $returnDetail->ItemId = $returnInfo['ItemId'];
+            $returnDetail->QuantityReturned = $returnInfo['Quantity'];
+            $returnDetail->save();
+            $status = 'Item Added';
+        }
+
 
 
         $thisReturn = "./return/".$id;
-        return redirect($thisReturn);
+        return redirect($thisReturn)->with('status', $status);
     }
 
     /**

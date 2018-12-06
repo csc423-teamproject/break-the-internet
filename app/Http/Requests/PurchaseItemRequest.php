@@ -23,6 +23,8 @@ class PurchaseItemRequest extends FormRequest
      */
     public function rules()
     {
+        $item = Inventory::where('ItemId', '=', $this->ItemId)->first();
+
         return [
             'CustomerId' => 'required|exists:customers,id',
             'ItemId' => 'required',
