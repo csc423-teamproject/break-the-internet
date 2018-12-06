@@ -38,12 +38,12 @@ class ReturnItemRequest extends FormRequest
         dd($item);
         if ($item != null) {
             $qis = $item->QuantityInStock;
-            dd($qis);
+//            dd($qis);
             $quantity = $qis - $returned;
         } else {
             $quantity = 0;
         }
-        dd($quantity);
+//        dd($quantity);
         return [
             'ItemId' => 'required',
             'Quantity' => 'required|lte:'.$quantity
