@@ -125,21 +125,21 @@ class ReturnController extends Controller
     public function update(ReturnItemRequest $request, $id)
     {
         $returnInfo = $request->validated();
-        $return = ReturnToVendorDetail::where('ItemId', '=', $returnInfo['ItemId'])->first();
+//        $return = ReturnToVendorDetail::where('ItemId', '=', $returnInfo['ItemId'])->first();
 
 //        dd($return);
-        if ($return != null) {
-            $return->QuantityReturned = $return->QuantityReturned;
-            $return->save();
-            $status = 'Item Updated';
-        } else {
+//        if ($return != null) {
+//            $return->QuantityReturned = $return->QuantityReturned;
+//            $return->save();
+//            $status = 'Item Updated';
+//        } else {
             $returnDetail = new ReturnToVendorDetail;
             $returnDetail->ReturnToVendorId = $id;
             $returnDetail->ItemId = $returnInfo['ItemId'];
             $returnDetail->QuantityReturned = $returnInfo['Quantity'];
             $returnDetail->save();
             $status = 'Item Added';
-        }
+//        }
 
 
 
